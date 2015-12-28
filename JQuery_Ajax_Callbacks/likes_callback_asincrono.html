@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title>Likes con Callbacks</title>
+</head>
+<body>
+	<p>Revise la consola de Herramientas de desarrollador para ver el resultado del script</p>
+	<script>
+		/*Declaración de mi funcion a obtener likes*/
+		/*
+			fn-funcion callback definida anónimamente
+			despues de un determinado tiempo dado por setTimeout() se ejecutará mi callback
+			al cual se le envía un arreglo de IDs de personas que dieron like
+		*/
+		var id_post='4559294905302';
+		function obtenerLikes(id_publicacion,fn){
+			setTimeout(
+				function(){
+					//Aqui se ejecuta el callback de forma asincrona despues de pasar un interval
+					fn(['234','432','456']);
+				},1000);
+		}
+		/*Invocación de mi metodo*/
+		obtenerLikes(id_post,function(likes){
+			alert("El post "+id_post+" tiene: "+likes.length+" likes");
+		});
+	</script>
+</body>
+</html>
