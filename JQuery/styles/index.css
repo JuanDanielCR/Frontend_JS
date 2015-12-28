@@ -47,3 +47,17 @@ body{
   padding-top: 30px;
   border-top: 1px solid #7f8c8d;
 }
+
+.paddeo-r{
+  padding: 20px;
+}
+.paddeo-l{
+  padding: -20px;
+}
+.transition{
+  -webkit-transition: all linear 0.4s;
+  -moz-transition: all linear 0.4s;
+  -o-transition: all linear 0.4s;
+  -ms-transition: all linear 0.4s;
+  transition:all linear 0.4s;
+}

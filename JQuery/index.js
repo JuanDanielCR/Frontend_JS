@@ -149,4 +149,27 @@ $(document).ready(function(){
 	string_link=a.attr('href');
 	console.log(string_link);
 
+
+	/*
+		CLASES
+		Jquery permite el manejo de clases para elementos del DOM con acciones como agregar, remover o togglear una clase
+		
+		addClass('nombre_Clase');
+		removeClass('nombre_Clase')
+		toggleClass('nombre_Clase');
+	*/
+
+	a.addClass('transition');
+
+	setInterval(function () {
+	
+        a.addClass('paddeo-r');
+
+		setInterval(function () {
+			a.removeClass('paddeo-r');
+
+		},2000);
+
+
+    },1000);
 })
