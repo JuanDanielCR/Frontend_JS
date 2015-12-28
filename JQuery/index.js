@@ -46,7 +46,7 @@ $(document).ready(function(){
 	var header= $('header');
 	console.log(header);
 
-	//Todos los elementos que sean h1 o h2
+	//Todos los elementos que sean h1 o h2, recordando que headings sera una ARRAY
 	var headings= $('h1,h2');
 
 	/*
@@ -60,6 +60,63 @@ $(document).ready(function(){
 		para hacer referencia al objeto de DOM! 
 		Así se buscaran a los h1 que esten dentro del header del DOM y no Object Jquery
 	*/
-	var hijos_header=$('h1',header[0]);
+	var hijos_header = $('h1',header[0]);
 	console.log(hijos_header);
+
+	/*
+		OBJETOS EN JQUERY
+		UN objeto de Jquery tiene metodos y propiedades que nos permiten modificarlos, si es un elemento del DOM por ejemplo.
+		-Los objetos pueden recibir concatenamiento de metodos
+	*/
+
+	var hijo = $('#app-header h1');
+	//Acceso al H1 dentro de app header
+
+	var hijo_optimo = $('#app-header').find('h1');
+	console.log(hijo_optimo[0]);
+
+	/*
+		BUSQUEDAS ÓPTIMAS Y CONCATENACIÓN
+
+		De manera optima, JQuery llamará a getElementById() y despues irá buscando los h1, si hay varios h1 se guardaran como arreglo.
+		Esta manera es una buena forma de ir buscando elementos pues se aprovechan las funciones como getElementById();
+
+		1. Podemos obtener un elemento inicial con un id o una clase para que JQuery use los metosodos tales como getElementByClassName
+		2. Usar las funciones de la libreria para realizar busquedas.
+		3. También se puede aprovechar el concatenamiento de funciones.
+
+		find('...param...') - encuentra dentro de un elemento del DOM
+		filter('...param...') - de todos los elementos anteriores usa los que tengan 'param'
+		not('...param...') - de todos los elementos anteriores (que ya traigo) los que no tengan 'param'
+		has('...param...')
+		first() - el primer elemento del array que tengo.
+	*/
+
+	var h2_filtro = $('#app-header').find('h2').filter('.subt');
+	h2_filtro.css({
+		'text-transform':'uppercase'
+	});
+
+	var h2_not = $('#app-header').find('h2').not('.subt');
+	h2_not.css({
+		'color':'white'
+	})
+
+	var h2_first = $('#app-header').has('h2').first();
+	console.log(h2_first);
+
+	/*
+		JQUERY OBJECT REFRESH
+		Cuando se hace una seleccion el JQuery  Object generada tendrá una cantidad fija de elementos del DOM.
+		Si el DOM recibe nuevos elementos que cumplan con las condiciones de selección del JqueryObject anterior estas no se agregarán.
+		Podemos usar add() para agregar estos nuevo elementos a nuestra seleccion.
+
+		add('...element DOM...')
+	*/
+
+	var h2s = $('h2');
+	console-log(h2s);
+	var h2 = document.createElement('h2');
+	h2s.add(h2);
+	console.log(h2s);
 })
