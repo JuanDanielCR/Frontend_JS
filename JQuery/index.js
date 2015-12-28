@@ -117,6 +117,36 @@ $(document).ready(function(){
 	var h2s = $('h2');
 	console.log(h2s);
 	var h2 = document.createElement('h2');
+	//Guardar en un nuevo objeto
 	var h2s_reload=h2s.add(h2);
 	console.log(h2s_reload);
+
+	/*
+		CREACION Y APPENDS AL DOM
+		Creacion: Usar la funcion $('<tag>',{attr})
+		Append: Usar la funcion append(JQueryObject)
+	*/
+
+	//Creacion
+	var a = $('<a>',{href:'http://juandanielcr.me',html:'Ir a juandanielcr.me', target:'_blank'});
+	//Append
+	$('#app-body').append(a);
+
+	/*
+		GETTERS Y SETTERS
+		Como en muchos otros lenguajes en JQuery existen funciones que nos permiten obtener valores de ciertos attributos, 
+		y funciones que nos permiten modificar estos attributos.
+
+		attr('attr'); getter para obtener el valor de un atributo
+	*/
+
+	//Getter
+	var string_link=a.attr('href');
+	console.log(string_link);
+
+	//Setter
+	a.attr('href','http://google.com')
+	string_link=a.attr('href');
+	console.log(string_link);
+
 })
