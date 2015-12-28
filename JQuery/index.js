@@ -115,8 +115,8 @@ $(document).ready(function(){
 	*/
 
 	var h2s = $('h2');
-	console-log(h2s);
-	var h2 = document.createElement('h2');
-	h2s.add(h2);
 	console.log(h2s);
+	var h2 = document.createElement('h2');
+	var h2s_reload=h2s.add(h2);
+	console.log(h2s_reload);
 })
