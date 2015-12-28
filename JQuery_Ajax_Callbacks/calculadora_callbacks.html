@@ -1,0 +1,35 @@
+<html>
+<head>
+	<title>Calculadora con Callbacks</title>
+</head>
+<body>
+	<script>
+		/*Definicion de mis funciones*/
+		function suma(num1, num2){
+			return num1+num2;
+		}
+		function resta(num1,num2){
+			return num1-num2;
+		}
+		function multiplicacion(num1, num2){
+			return num1*num2;
+		}
+		function division(num1, num2){
+			return num1/num2;
+		}
+
+		function calculadora(funcion, num1, num2){
+			//calculadora recibe una funcion llamada 'funcion'; funcion es mi callback
+			//funcion se ejecuta en la linea 24
+			return funcion(num1,num2);
+		}
+
+		//Invocacion de las funciones, calculadora recibe un callback que se cuya definición no es anónima, ya que estaba previamente definido
+		console.log(calculadora(suma,1,3));
+		console.log(calculadora(resta,5,8));
+		console.log(calculadora(multiplicacion,0,3));
+		console.log(calculadora(division,4,2));	
+
+	</script>
+</body>
+</html>
