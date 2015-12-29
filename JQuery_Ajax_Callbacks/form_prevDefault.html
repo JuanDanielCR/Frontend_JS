@@ -4,12 +4,25 @@
 </head>
 <body>
 	<form action="url" method="POST">
-
+		<input type="text" placeholder="nombre" name="nombre"/>
+		<select name="hotel">
+			<option value="0">Elige tu hotel</option>
+			<option value="1">Holiday Inn</option>
+			<option value="2">Fiesta Inn</option>
+		</select>
+		<input type="submit" value="Registrar"/>
 	</form>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
 	<script type="text/javascript">
+
+	/*Con el Object Event puedo acceder a un funcion funcion preventDefault() la cual evita que el elemento realiza su comportamiento normal*/
 	$(document).ready(function(){
-		
+		$("form").on("submit",function(event){
+			event.preventDefault();
+			console.log(event);
+			console.log($(this).attr("action"));
+		})
+		//Mi AJAX
 	});
 	</script>
 </body>
