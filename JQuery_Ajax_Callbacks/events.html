@@ -6,6 +6,11 @@
 	<button id="btn1">btn1</button>
 	<button id="btn2">btn2</button>
 	<button id="btn3">btn3</button>
+
+	<p>Sexo</p>
+	<p>Hombre: <input type="radio" name="sex" value="male" class="sex"/></p>
+	<p>Mujer: <input type="radio" name="sex" value="female" class="sex"/></p>
+
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
 	<script type="text/javascript">
 		/*
@@ -28,6 +33,14 @@
 				'color':'red'
 			})
 		});
+
+		$('.sex').on('change',function(){
+			if($(this).val()=='male'){
+				alert("Jugaras futbol");
+			}else{
+				alert("Jugaras futbol en FIFA");
+			}
+		})
 	</script>
 </body>
 </html>
