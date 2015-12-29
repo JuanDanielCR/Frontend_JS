@@ -1,10 +1,35 @@
 $(document).ready(function(){
+
+  var container= $("#app-body").find('.tv-shows');
+
   $("#app-body")
   .find("form")
   .submit(function(event){
     event.preventDefault();
     var cadena_busqueda=$(this).find("input").val();
-    alert("Se ha buscado "+cadena_busqueda);
+    /*
+      AJAX
+
+      url:"string"
+      data:"{llave:valor}" data a enviar para buscar
+      success: function(data, textStatus, xhr) callback que se ejecuta cuando no llega un respuesta correcta
+    */
+    $.ajax({
+      url:"http://api.tvmaze.com/search/shows",
+      data:{q:cadena_busqueda},
+      success:function(data,textStatus,xhr){
+          $('.tv-show').remove();
+          data.forEach(function(item){
+          var template_bind =
+          template.replace(":name:",item.show.name)
+                  .replace(":summary:",item.show.summary)
+                  .replace(":img:",item.show.image.medium)
+                  .replace(":img_alt:", item.show.name+" Logo")
+
+         container.append($(template_bind));
+          })
+      }
+    })
   })
 
   /*
@@ -36,7 +61,6 @@ $(document).ready(function(){
       url:"http://api.tvmaze.com/shows",
       success:function(data,textStatus,xhr){
 
-        var container= $("#app-body").find('.tv-shows');
         container.find('.effect').slideUp(1000,function(){
           container.find('.effect').remove();
         })
