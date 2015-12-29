@@ -6,6 +6,7 @@ $(document).ready(function(){
   .find("form")
   .submit(function(event){
     event.preventDefault();
+
     var cadena_busqueda=$(this).find("input").val();
     /*
       AJAX
@@ -18,6 +19,7 @@ $(document).ready(function(){
       url:"http://api.tvmaze.com/search/shows",
       data:{q:cadena_busqueda},
       success:function(data,textStatus,xhr){
+
           $('.tv-show').remove();
           data.forEach(function(item){
           var template_bind =
