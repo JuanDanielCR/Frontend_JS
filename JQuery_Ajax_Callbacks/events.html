@@ -7,12 +7,14 @@
 	<button id="btn2">btn2</button>
 	<button id="btn3">btn3</button>
 
+	<h4>Sacar Callbacks</h4>
 	<p>Sexo</p>
 	<p>Hombre: <input type="radio" name="sex" value="male" class="sex"/></p>
 	<p>Mujer: <input type="radio" name="sex" value="female" class="sex"/></p>
 
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
 	<script type="text/javascript">
+		$(document).ready(function(){
 		/*
 			EVENTOS
 			handler.- Es un callback declarado anonimamente que se pasa a una funcion de tipo event,
@@ -41,6 +43,37 @@
 				alert("Jugaras futbol en FIFA");
 			}
 		})
+
+		/*
+			Multiples Handlers para multiples eventos
+			JS nos da la capacidad de manejar hanldlers especificos para cada tipo de evento, sin necesidad de crear
+			dos funciones sobre el mismo JQuery Object, si no que desde una misma funcion podemos hacerlo con un OBJETO
+
+			CLAVE - VALOR
+			Clave: Evento
+			Valor: callback
+		*/
+
+		$('p').on({
+			"click":function(){console.log("Click en p")},
+			"mouseover":function(){console.log("Encima de mi ")}
+		})
+
+
+		/*
+			SACAR UN HANDLER
+			Hay ocasiones en las que un evento posee asosiados distintos handlers, para desvincular estos handlers 
+			usamos off('event',function).
+			Para esto es recomendable tener un callback declarado no anonimamente, es decir guardarlo en una variable
+			o poner un nombre
+		*/
+
+		var foo=function(e){console.log("FOO")};
+		var bar=function(e){console.log("BAR")};
+
+		$("h4").on("click",foo).on("click",bar);
+		$("h4").off("click",bar);
+	});
 	</script>
 </body>
 </html>
