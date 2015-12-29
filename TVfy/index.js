@@ -37,6 +37,10 @@ $(document).ready(function(){
       success:function(data,textStatus,xhr){
 
         var container= $("#app-body").find('.tv-shows');
+        container.find('.effect').slideUp(1000,function(){
+          container.find('.effect').remove();
+        })
+       
 
         //data es un array de JSON Objects, usar .forEach()
         data.forEach(function(item){
