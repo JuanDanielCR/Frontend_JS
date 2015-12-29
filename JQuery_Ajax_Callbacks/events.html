@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title>Events JQuery</title>
+</head>
+<body>
+	<button id="btn1">btn1</button>
+	<button id="btn2">btn2</button>
+	<button id="btn3">btn3</button>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
+	<script type="text/javascript">
+		/*
+			EVENTOS
+			handler.- Es un callback declarado anonimamente que se pasa a una funcion de tipo event,
+			este callback se ejecuta cuando el evento se cumple
+		*/
+		$('#btn1').click(function(e){
+			alert("Ouchhh con Click!");
+		});
+		//Otra forma que explica el interior de JQuery es con la funcion on()
+		$('#btn2').on('click',function(){
+			alert("Ouch con On!");
+		})
+
+		//-----THIS-----
+		//Para manejar un elemento especifico de un conjunto de elementos del DOM usamos el contexto $(this)
+		$('button').click(function(ev){
+			$(this).css({
+				'color':'red'
+			})
+		});
+	</script>
+</body>
+</html>
