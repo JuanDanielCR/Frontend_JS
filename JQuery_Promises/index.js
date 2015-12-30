@@ -60,10 +60,8 @@ Ej. Un ajax que denpende del resultado de otro ajax anterior, y asi sucesivement
 
   then().- Metodo que permite encandenar distintos llamados uno debajo del otro.
 */
-    $.ajax({
-      url:"http://api.tvmaze.com/shows",
-      success:function(data,textStatus,xhr){
-
+    $.ajax("http://api.tvmaze.com/shows").then(function(data,txt,xhr){
+              
         container.find('.effect').slideUp(1000,function(){
           container.find('.effect').remove();
         })
@@ -77,7 +75,6 @@ Ej. Un ajax que denpende del resultado de otro ajax anterior, y asi sucesivement
                   .replace(":img_alt:", item.name+" Logo")
 
          container.append($(template_bind));
-        })
-      }
+      })
     })
 })

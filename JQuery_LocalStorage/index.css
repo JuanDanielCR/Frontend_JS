@@ -3,18 +3,6 @@ body {
   margin: 0;
   font-family: Roboto;
 }
-
-.tv-show button{
-  outline: 0;
-  position: absolute;
-  top: 10%;
-  right: 5%;
-  border: solid 1.5px;
-  border-color: gray;
-  border-radius: 2px;
-  background: transparent;
-  cursor: pointer;
-}
 .load{
   text-align: center;
 }
@@ -29,7 +17,6 @@ body {
   position: fixed;
   background-color: #2ecc71;
   text-align: center;
-  z-index: 200;
 }
 
 #app-header h1 {
@@ -65,7 +52,6 @@ body {
 .tv-show {
   width: 100%;
   overflow: hidden;
-  position: relative;
   padding: 16px;
   background-color: white;
   margin-bottom: 16px;

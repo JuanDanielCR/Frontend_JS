@@ -28,7 +28,7 @@ $(document).ready(function(){
                   .replace(":img:",item.show.image.medium)
                   .replace(":img_alt:", item.show.name+" Logo")
 
-         container.append($(template_bind));
+         container.append($(template_bind).fadeIn(1500));
           })
       }
     })
@@ -47,6 +47,7 @@ $(document).ready(function(){
           '<div class="right info">' +
             '<h1>:name:</h1>' +
             '<p>:summary:</p>' +
+            '<button class="like"> + </button>'+
           '</div>' +
         '</article>';
   /*
@@ -63,7 +64,7 @@ $(document).ready(function(){
       url:"http://api.tvmaze.com/shows",
       success:function(data,textStatus,xhr){
 
-        container.find('.effect').slideUp(1000,function(){
+        container.find('.effect').slideUp(800,function(){
           container.find('.effect').remove();
         })
        
@@ -85,7 +86,7 @@ $(document).ready(function(){
                   .replace(":img:",item.image.medium)
                   .replace(":img_alt:", item.name+" Logo")
 
-         container.append($(template_bind));
+         container.append($(template_bind).fadeIn(1900));
         })
       }
     })
