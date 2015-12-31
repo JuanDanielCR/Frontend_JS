@@ -22,7 +22,11 @@ Para saber mas sobre el BUNDLE revisar package.json
 
 run permite correr scripts revizar el package.jsin para ver que hace build-js
 
+/*********************
+GIT
+Al momento de subir código a github o versionarlo con git no es buena practica guardar carpetas como node_modules ya que las dependencias son administradas con npm y al correr npm run se leera el pacakge json y se descargara todo de nuevo, asi agrega la carptea
 
+.gitignore para los node_modules
 
 /**********************
 	PACKAGE.JSON
