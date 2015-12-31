@@ -12,3 +12,27 @@
   	"build-js":"browserify index.js > app.js"
   }
 }
+/*
+	PACKAGE.JSON
+		Archivo manifest que contiene información de nuestro proyecto.
+		Al ser un archivo JSON se usaran atributos llave-valor
+
+	Seccion Dependencies.
+		Incluye las dependencias de nuestro proyecto, esta parte se autocompleta si usamos un gestor de paquetes como npm
+		Ej. >npm instal --save jquery
+
+		El símbolo ^ nos indica que la version se ira actualizando
+
+	Seccion dev-dependencies.
+		Aqui van las dependencias que nos ayudaran a crear el bundle.
+		Ej. >npm install --save-dev borwserify
+	
+	BUNDLE.
+		bundle = dependencias + nuestro_código + código_browserify para unir.
+		Tener un bundle nos ayuda realizar un solo request y no varios para no sobre cargar el servidor.
+
+	Seccion scripts.
+		Un script es un comando que puede correrse desde consola con el comando npm run <nombre del script>.
+		
+
+*/

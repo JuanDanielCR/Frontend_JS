@@ -2,6 +2,8 @@
 * Module Dependencies
 */
 var $=require('jquery');
+/*Browserify necesita el require para poner jquery en la misma seccion*/
+
 
 $(document).ready(function(){
 
