@@ -1,3 +1,8 @@
+/*
+* Module Dependencies
+*/
+var $=require('jquery');
+
 $(document).ready(function(){
 
   var container= $("#app-body").find('.tv-shows');
