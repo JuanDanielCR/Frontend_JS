@@ -1,8 +1,12 @@
 /*
 * Module Dependencies
-*/
+
 var $=require('jquery');
-/*Browserify necesita el require para poner jquery en la misma seccion*/
+Browserify necesita el require para poner jquery en la misma seccion
+
+Pero ahora con Babel puedo usar el estandar de ECAMScript 6 para importar
+*/
+import $ from 'jquery';
 
 
 $(document).ready(function(){
