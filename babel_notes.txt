@@ -1,0 +1,26 @@
+BABEL JS
+
+ECMAScript
+
+Es el nucleo de Javascript, es un estandar desarollado po W3 que dicta las bases del lenguaje JS.
+Entre sus especificaciones se encuentra la forma de realizar:
+	-Funciones.
+	-Estructuras de control if(), for();
+	-JSON
+
+	Javascript como tal agrega funcionalidades a ECMAScript, tales como:
+		-DOM Acceso y manipulacion
+		-Peticiones AJAX
+		-Eventos
+
+Babel.js es un dependencia que nos permite escribir código en ECMAScript 2015 y traducirlo a que ECMAScript 5, ya que el primero no es soportado por todo los navegadores, mientras que el segundo si.
+
+En npm descargar:
+
+BABELIFY
+
+babelify es una dependencia que nos permite hacer uso de Babel junto con browserify, para de esta forma modificar el entrypoint.
+También es necesario usar babel-preset-es2015
+
+>npm install --save-dev babelify
+>npm install --save-dev babel-preset-es2015

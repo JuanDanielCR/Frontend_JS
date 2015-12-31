@@ -1,0 +1,50 @@
+NPM
+Node Package Manager
+
+Requerimientos:
+1.Tener instalado node.js
+2. Descargar npm
+
+NPM maneja las dependencias de nuestro proyecto por medio de modulos
+Dependencia: Libreria de Terceros usada dentro de nuestro proyecto
+
+Comandos:
+
+>npm install --save jquery
+Crea un dir llamado node_modules/jquery y al usar --save se actualiza nuestro package.json en la seccion dependencias para señalar que esta dependenciase usara en el proyecto
+
+>npm install --save-dev browserify
+--save-dev hace que todo se guarde en la seccion dedev-dependencies que nos ayuda a construir el BUNDLE
+
+Para saber mas sobre el BUNDLE revisar package.json
+
+>npm run build-js
+
+run permite correr scripts revizar el package.jsin para ver que hace build-js
+
+
+
+/**********************
+	PACKAGE.JSON
+		Archivo manifest que contiene información de nuestro proyecto.
+		Al ser un archivo JSON se usaran atributos llave-valor
+
+	Seccion Dependencies.
+		Incluye las dependencias de nuestro proyecto, esta parte se autocompleta si usamos un gestor de paquetes como npm
+		Ej. >npm instal --save jquery
+
+		El símbolo ^ nos indica que la version se ira actualizando
+
+	Seccion dev-dependencies.
+		Aqui van las dependencias que nos ayudaran a crear el bundle.
+		Ej. >npm install --save-dev borwserify
+	
+	BUNDLE.
+		bundle = dependencias + nuestro_código + código_browserify para unir.
+		Tener un bundle nos ayuda realizar un solo request y no varios para no sobre cargar el servidor.
+
+	Seccion scripts.
+		Un script es un comando que puede correrse desde consola con el comando npm run <nombre del script>.
+		
+
+****************/
