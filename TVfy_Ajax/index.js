@@ -2,6 +2,8 @@ $(document).ready(function(){
 
   var container= $("#app-body").find('.tv-shows');
 
+          
+
   $("#app-body")
   .find("form")
   .submit(function(event){
@@ -47,7 +49,7 @@ $(document).ready(function(){
           '<div class="right info">' +
             '<h1>:name:</h1>' +
             '<p>:summary:</p>' +
-            '<button class="like"> + </button>'+
+            '<button class="btn_like"> + </button>'+
           '</div>' +
         '</article>';
   /*
@@ -64,7 +66,7 @@ $(document).ready(function(){
       url:"http://api.tvmaze.com/shows",
       success:function(data,textStatus,xhr){
 
-        container.find('.effect').slideUp(800,function(){
+        container.find('.effect').slideUp(200,function(){
           container.find('.effect').remove();
         })
        
@@ -86,7 +88,15 @@ $(document).ready(function(){
                   .replace(":img:",item.image.medium)
                   .replace(":img_alt:", item.name+" Logo")
 
-         container.append($(template_bind).fadeIn(1900));
+         container.append($(template_bind).fadeIn(800));
+          
+
+          var button_container=$("#app-body .tv-show .btn_like");
+          button_container.on('click',function(ev){
+            var me_gusta=$(this);
+            me_gusta.closest('.tv-show').addClass('likeado');
+          })
+          //event 
         })
       }
     })
