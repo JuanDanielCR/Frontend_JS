@@ -1,0 +1,42 @@
+<html>
+<head>
+	<title>VanillaJS vs Jquery</title>
+</head>
+<body>
+<button id="consultar">API</button>
+<script type="text/javascript">
+	//Acceso al DOM con vanilla
+	var boton=document.getElementById("consultar");
+
+	//Agregar un Event con VanillaJS
+	boton.addEventListener("click", function(){
+		//Consulta AJAX con VanillaJS
+
+		//Crear un objeto de tipo XMLHttpRequest
+		var request=new XMLHttpRequest();
+		//Conectarse a la API con el objeto creado
+		request.open('GET','http://api.tvmaze.com/shows/28',true);
+
+		//Propiedad onLoad que se ejecuta cuando se devuelve una respuesta del servidor
+		request.onload=function(){
+			if(request.status>=200 && request.status<400){
+console.log("click");
+				var data = JSON.parse(request.responseText);
+				//Crear y append de elemento
+				var p = document.createElement('p');
+				p.innerHTML=data.name;
+				document.body.appendChild(p);
+
+			}
+	}
+		//Segunda propiedad 
+		request.onerror=function(){
+			alert("Se ha producido un error");
+		}
+
+		//Enviar el request
+		request.send();
+	});
+</script>
+</body>
+</html>
