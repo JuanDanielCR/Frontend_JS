@@ -30,9 +30,10 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav menu">
-         <li><a href="#inicio"><span class="icon-home"></span>  Intro</a></li>
-        <li><a href="#message"> <span class="icon-bubble"></span>  Mensaje</a></li>
-        <li><a href="#ejercicios"><span class="icon-pencil"></span>    Ejercicios</a></li>
+        <li><a href="#inicio">Intro</a></li>
+        <li><a href="#message">Mensaje</a></li>
+        <li><a href="#ejercicios">Ejercicios</a></li>
+        <li><a href="#us">Nosotros</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li></li>
@@ -41,21 +42,9 @@
     </div>
   </div>
 </nav>
-<!--Navegación-->
-<div class="row" id="inicio">
-  <div class="col-md-1 col-sm-1 col-xs-1"></div>
-  <div class="col-md-10 col-sm-10 col-xs-10">
-    <h1 id="big">Cálculo Integral</h1>
-    <!--Intro al contenido-->
-    <blockquote>
-      <p>Este sitio posee varios ejercicios de cálculo integral, resueltos mediante diversos métodos de integración.</p>
-      <small>Estudiantes de la ESCOM - <cite title="Source Title">IPN, México DF</cite></small>
-    </blockquote>
-  </div>
-</div>
 
 <!--Seccion enorme-->
-<div class="row" id="message">
+<div class="row" id="inicio">
   <div class="col-md-1 col-sm-1 col-xs-1"></div>
   <div class="col-md-10 col-sm-10 col-xs-10">
     <div class="jumbotron container_medium">
@@ -71,21 +60,89 @@
   </div>
   </div>
 </div>
-<!--Boton volver-->
-<a href="#began" class="btn btn-success" id="up">Inicio</a>
-<div class="row">
+<!--Navegación-->
+<div class="row" id="message">
   <div class="col-md-1 col-sm-1 col-xs-1"></div>
   <div class="col-md-10 col-sm-10 col-xs-10">
+    <h1 id="big">Cálculo Integral</h1>
+    <!--Intro al contenido-->
+    <blockquote>
+      <p>Este sitio posee varios ejercicios de cálculo integral, resueltos mediante diversos métodos de integración.</p>
+      <small>Estudiantes de la ESCOM - <cite title="Source Title">IPN, México DF</cite></small>
+    </blockquote>
+  </div>
+</div>
+<!--Boton volver-->
+<a href="#began" class="btn btn-success" id="up">Inicio</a>
+<div class="row" id="ejercicios">
+  <div class="col-md-1 col-sm-1 col-xs-1"></div>
+  <div class="col-md-10 col-sm-10 col-xs-10">
+    <h1>Ejercicios</h1>
+    <p>A continuación se mostrará una lista con 120 ejercicios de integrales, los ejercicios se encuentran ya resueltos y estos incluyen el enunciado y su procedimiento de resolución. Los ejercicios se obtuvieron del libro Calculo de una Variable, cuya bibliografía se encuentra debajo.</p>
+    <p>Bibliografía: <abbr title="attribute">Cálculo 1°, Ron E. Larsson 816pp Editorial MCGRAW-HILL, Lengua: Castellano, ISBN: 9786071502735</abbr>.</p>
+    <div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Acceso al Contenido</h3>
+      </div>
+      <div class="panel-body">
+      Los ejercicios se encuentran documentados en fotografías a las cuales se accede mediante los controles del siguiente slider.
+      </div>
+    </div>
+    <br>
     <ul class="bxslider">
-      <li><img src="images/logo.png" width="200"/></li>
-      <li><img src="images/logo.png" width="200"/></li>
+      <!--JS-->
     </ul>
   </div>
 </div>
+<!--Equipo-->
+<div class="row" id="us">
+  <div class="col-md-1 col-sm-1 col-xs-1"></div>
+      <div class="col-md-10 col-sm-10 col-xs-10" id="team">
+        <h1>Equipo</h1>
+        <p class="text-primary">Nuestro esta conformado por estudiantes que disfrutan su trabajo, así como compartir su conocimiento con la demás gente. Todos los colaboradores tienen la firme idea de compartir conocimiento con las personas, así que no dudes en contactarlos.</p>
+        <div class="row" id='members'>
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <span class='conta'><center><img src="images/juan.jpg" width='200' alt='JuanDanielCR'></center></span>
+            <p><a href="#">Juan Castillo</a></p>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <span class='conta'><center><img src="images/david.jpg" width='200' alt='JuanDanielCR'></center></span>
+            <p><a href="#">David Martinez</a></p>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-12">
+             <span class='conta'><center><img src="images/said.jpg" width='200' alt='JuanDanielCR'></center></span>
+            <p>Said Naranjo</p>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-12">
+             <span class='conta'><center><img src="images/roy.jpg" width='200' alt='JuanDanielCR'></center></span>
+            <p>Rogelio Campos</p>
+          </div>
+        </div>
+        <div class="row" id='members'>
+         <div class="col-md-3 col-sm-3 col-xs-12">
+           <span class='conta'><center><img src="images/gis.jpg" width='200' alt='JuanDanielCR'></center></span>
+            <p>Giselle Flores</p>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-12">
+             <span class='conta'><center><img src="images/ricardo.jpg" width='200' alt='JuanDanielCR'></center></span>
+            <p>Ricardo García</p>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-12">
+             <span class='conta'><center><img src="images/hugo.jpg" width='200' alt='JuanDanielCR'></center></span>
+            <p>Hugo Ramirez</p>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-12">
+             <span class='conta'><center><img src="images/diego.jpg" width='200' alt='JuanDanielCR'></center></span>
+            <p>Diego Granados</p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
 
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-	<script type="text/javascript" src="https://bootswatch.com/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="https://bootswatch.com/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
   <script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
 </body>
 </html>

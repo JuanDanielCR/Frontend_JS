@@ -1,4 +1,16 @@
 $(document).ready(function(){
+/*Slider*/
+	var fotos;
+	for(i=1;i<5;i++){
+		var name=''+i;
+		fotos+="<li><center><img src=images/"+name+".png width='200'/></center></li>";
+	}
+	
+	$('.bxslider').html(fotos);
+	$('.bxslider').bxSlider({
+	  auto: true,
+	  autoControls: true
+	});
 /*Scroll*/
     $('a[href^="#"]').on('click',function (e) {
         e.preventDefault();
@@ -19,10 +31,5 @@ $(document).ready(function(){
 		$( this ).toggleClass( "active" );
 		$("window").scrollTop($("*:contains('Mexico'):eq(n)").offset().top);
 	});
-/*Slider*/
 
-	$('.bxslider').bxSlider({
-	  auto: true,
-	  autoControls: true
-	});
 });

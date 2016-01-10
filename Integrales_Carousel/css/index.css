@@ -35,8 +35,19 @@ body{
 .big{
 	font-size:3em; 
 }
-
-
+.bxslider li{
+	max-width: 90% !important;
+}
+#team img{
+	border-radius: 50%;
+	border: 2px gray;
+	margin: 1em 0 5px 0;
+	cursor: pointer;
+}
+#team #members p{
+	text-align: center;
+	margin: 10px 0;
+}
 .icon-facebook-official:before {
     content: "\e600";
 }
