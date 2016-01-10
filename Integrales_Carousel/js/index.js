@@ -19,5 +19,10 @@ $(document).ready(function(){
 		$( this ).toggleClass( "active" );
 		$("window").scrollTop($("*:contains('Mexico'):eq(n)").offset().top);
 	});
+/*Slider*/
 
+	$('.bxslider').bxSlider({
+	  auto: true,
+	  autoControls: true
+	});
 });

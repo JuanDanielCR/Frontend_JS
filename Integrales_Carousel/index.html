@@ -13,6 +13,7 @@
   	<link rel="stylesheet" type="text/css" href="https://bootswatch.com/flatly/bootstrap.min.css"/>
   	<link rel="stylesheet" type="text/css" href="css/normalize.css"/>
   	<link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css">
 </head>
 <body>
 <nav class="navbar navbar-default" id="began">
@@ -24,29 +25,18 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="http://juandanielcr.me/" target="_blank">juandanielcr.me</a>
+      <a class="navbar-brand" href="http://www.isc.escom.ipn.mx" target="_blank">ESCOM</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav menu">
-         <li><a href="#inicio">Intro</a></li>
-        <li><a href="#message">Mensaje</a></li>
-        <li><a href="#">Ejercicios</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
+         <li><a href="#inicio"><span class="icon-home"></span>  Intro</a></li>
+        <li><a href="#message"> <span class="icon-bubble"></span>  Mensaje</a></li>
+        <li><a href="#ejercicios"><span class="icon-pencil"></span>    Ejercicios</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="http://www.isc.escom.ipn.mx" target="_blank">ESCOM</a></li>
+        <li></li>
+        <li><a class="navbar-brand" href="http://juandanielcr.me/" target="_blank"><span class="icon-display"></span>   juandanielcr.me</a></li>
       </ul>
     </div>
   </div>
@@ -55,7 +45,7 @@
 <div class="row" id="inicio">
   <div class="col-md-1 col-sm-1 col-xs-1"></div>
   <div class="col-md-10 col-sm-10 col-xs-10">
-    <h1>Cálculo Integral</h1>
+    <h1 id="big">Cálculo Integral</h1>
     <!--Intro al contenido-->
     <blockquote>
       <p>Este sitio posee varios ejercicios de cálculo integral, resueltos mediante diversos métodos de integración.</p>
@@ -83,10 +73,19 @@
 </div>
 <!--Boton volver-->
 <a href="#began" class="btn btn-success" id="up">Inicio</a>
-
+<div class="row">
+  <div class="col-md-1 col-sm-1 col-xs-1"></div>
+  <div class="col-md-10 col-sm-10 col-xs-10">
+    <ul class="bxslider">
+      <li><img src="images/logo.png" width="200"/></li>
+      <li><img src="images/logo.png" width="200"/></li>
+    </ul>
+  </div>
+</div>
 
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 	<script type="text/javascript" src="https://bootswatch.com/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
 </body>
 </html>
