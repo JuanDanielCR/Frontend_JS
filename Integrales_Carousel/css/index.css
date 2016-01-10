@@ -44,6 +44,10 @@ body{
 	margin: 1em 0 5px 0;
 	cursor: pointer;
 }
+.rotar{
+	animation: roll 1s infinite;
+  transform: rotate(30deg);
+}
 #team #members p{
 	text-align: center;
 	margin: 10px 0;
@@ -156,3 +160,11 @@ body{
     content: "\e61b";
 }
 
+@keyframes roll {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
