@@ -152,6 +152,7 @@ body{
     color: #DC4A38;}
 .icon-twitter2:before {
     content: "\e611";
+    color: #5EA9DD;
 }
 .icon-github4:before {
     content: "\e612";
@@ -165,6 +166,7 @@ body{
 }
 .icon-linkedin:before {
     content: "\e620";
+    color: #0274B3;
 }
 .icon-html5:before {
     content: "\e621";
