@@ -32,14 +32,5 @@ $(document).ready(function(){
 		$("window").scrollTop($("*:contains('Mexico'):eq(n)").offset().top);
 	});
 /*Hover*/
-var gira=0;
-    $('#team img').mouseenter(function(event){
-    	if(gira==0){
-    		$(this).addClass('rotar');
-    		gira==1;
-    	}else{
-    		$(this).removeClass('rotar');
-    	}
-    	
-    });
+
 });

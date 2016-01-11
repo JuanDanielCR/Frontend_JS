@@ -43,6 +43,21 @@ body{
 	border: 2px gray;
 	margin: 1em 0 5px 0;
 	cursor: pointer;
+    -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+  -webkit-transition: all .5s; /* Safari */
+    transition: all .5s;
+}
+#team img:hover{
+    -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+}
+
+#us{
+    background-color: #ECE8F0;
+}
+.left{
+    text-align: left !important;
 }
 .rotar{
 	animation: roll 1s infinite;
@@ -52,8 +67,23 @@ body{
 	text-align: center;
 	margin: 10px 0;
 }
+.tasks{
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+.gray{
+    color: gray;
+    font-size: .9em;
+}
+.social{
+    text-align: center;
+}
+
+
 .icon-facebook-official:before {
     content: "\e600";
+    color: #405D9A;
 }
 .icon-home:before {
 	margin-right: 10px;
@@ -119,12 +149,13 @@ body{
 }
 .icon-google-plus2:before {
     content: "\e610";
-}
+    color: #DC4A38;}
 .icon-twitter2:before {
     content: "\e611";
 }
 .icon-github4:before {
     content: "\e612";
+    color: #800080;
 }
 .icon-tux:before {
     content: "\e613";
@@ -158,13 +189,4 @@ body{
 }
 .icon-opera:before {
     content: "\e61b";
-}
-
-@keyframes roll {
-  0% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
