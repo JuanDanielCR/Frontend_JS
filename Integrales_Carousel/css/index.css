@@ -55,6 +55,7 @@ body{
 
 #us{
     background: #ddd url(../images/team.png) repeat top left;
+    padding-bottom: 2em;
 }
 .left{
     text-align: left !important;
