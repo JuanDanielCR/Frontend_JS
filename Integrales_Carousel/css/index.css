@@ -54,7 +54,7 @@ body{
 }
 
 #us{
-    background-color: #ECE8F0;
+    background: #ddd url(../images/team.png) repeat top left;
 }
 .left{
     text-align: left !important;
@@ -79,7 +79,10 @@ body{
 .social{
     text-align: center;
 }
-
+footer{
+     background: #ddd url(../images/footer.png) repeat top left;
+     min-height: 200px;
+}
 
 .icon-facebook-official:before {
     content: "\e600";
