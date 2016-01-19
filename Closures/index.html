@@ -1,0 +1,60 @@
+<html>
+<head>
+	<title>Closures</title>
+</head>
+<body>
+	<script type="text/javascript">
+	/*Closures*/
+
+	/*
+		MDN: "Un closure es un tipo especial de objeto que combina dos cosas, una función y el entorno en que se crea."
+			  Entorno: El entorno esta formado por las variables locales a las que la funcion interna tenía acceso.
+
+		PLATZI:"Forma de tener nuestras variables encapsuladas dentro de una función para usarlas posteriormente".
+
+		WEB: "Obejto JS que nos permite ejecutar una funcion interna a traves de una externa, para mantener a las variables locales
+			  con persistencia en la memoria, después de ejecutar la función que las usa, y engañar al Garbage Collector".
+	*/
+
+	//Para iniciar un script en cuanto se cargue, con VanillaJS se usa un closure.
+	(function(){
+		//Esta funcion se llama inmediatamente despues de que el archivo js se carga.
+
+		/*
+			Partes del Closure
+
+			Entorno: Todas las variables locales que se encuentran en la función externa.
+			Funcion Constructora: Solo me sirve para declarar el interior del closure.
+			Funcion Externa: Function que me permite ejecutar 
+			Funcion Interna: Funciones que se encuentran dentro de la function constructora, acceden a las variables locales.
+		*/
+
+		//Closure básico - Manejo memoria
+		function crear(){ //funcion constructora
+			//Entorno
+			var nombre="Juan";
+			//Funcion interna
+			function muestra_nombre(){
+				alert(nombre);
+			}
+			return muestra_nombre();
+		}
+
+		//Sin closure
+		crear();
+		//Aqui ya termino la funcion crear y var nombre ya no existe pues el Garbage Collector lo quitp
+
+		//Con closure - persona es el closure ya que guarda tanto a la var local nombre como a la funcion interna muestra_nombre()
+		var persona=crear();
+		//Funcion Externa = persona con parentesis
+		persona();
+		/*
+		Aqui ya se ejecuto  muestra_nombre(); a traves de persona y la var nombre aun existe ya que si vuelvo a llamar a persona,
+		la funcion interna asociada necesita de estas variables locales.
+		*/
+
+
+	})();
+	</script>
+</body>
+</html>
