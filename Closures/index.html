@@ -96,12 +96,15 @@
 			 	dieta:function(){
 						peso-=1;
 						imprimir();
-					}
+					},
+				getter_altura:function(){
+					return altura;
+				}
 			}
 		}
 
 		/*
-			Emulando la instanciación de objetos
+			Emulando la instanciación de objetos, si quiero obtener las variables podria hacer un getter.
 		*/
 		var p1 = new Usuario(18,66,180);
 		p1.cumple();
@@ -109,6 +112,9 @@
 
 		var p2 = new Usuario(90,44,130);
 		p2.cumple();
+
+		//Getter
+		alert(p2.getter_altura());
 
 	})();
 	</script>
