@@ -10,9 +10,36 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no"/>
 	<link rel="stylesheet" type="text/css" href='https://fonts.googleapis.com/css?family=Lato'/>
 	<link rel="stylesheet" type="text/css" href="css/normalize.css"/>
-	<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
 <body>
+	<header class="main-header">
+		<h1>Platzi Weather</h1>
+		<h2>An awesome slogan</h2>
+	</header>
+	<!--Solo debe haber un tag <main> y no debe ir dentro de otros tags que no acepten flow content como <header> <footer> <article>-->
+	<main class="cards-group">
+		<!--
+		<template> por default no se muestra hasta que lo activemos y llenemos de data con JS
 
+		The HTML template element <template> is a mechanism for holding client-side content that is not to be rendered when a page is loaded but may subsequently be instantiated during runtime using JavaScript. 
+		-->
+		<template>
+			<div class="card">
+				<header class="card__header">
+					<h3 class="card__title"></h3>
+					<h4 class="card__time"></h4>
+				</header>
+				<div class="card__info">
+					<img src="" alt="" class="card__image"/>
+					<span class="card__maxt"></span>
+					<span class="card__mint"></span>
+					<span class="card__temp"></span>
+				</div>
+			</div>
+		</template>
+	</main>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
 </body>
 </html>
