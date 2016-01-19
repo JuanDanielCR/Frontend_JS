@@ -3,6 +3,14 @@
 	<title>Closures</title>
 </head>
 <body>
+	<header>
+		<h3>Javascript</h3>
+	</header>
+	<main>
+		<article>
+			<h4>Closures</h4>
+		</article>
+	</main>
 	<script type="text/javascript">
 	/*Closures*/
 
@@ -14,20 +22,20 @@
 
 		WEB: "Obejto JS que nos permite ejecutar una funcion interna a traves de una externa, para mantener a las variables locales
 			  con persistencia en la memoria, después de ejecutar la función que las usa, y engañar al Garbage Collector".
-	*/
 
-	//Para iniciar un script en cuanto se cargue, con VanillaJS se usa un closure.
-	(function(){
-		//Esta funcion se llama inmediatamente despues de que el archivo js se carga.
-
-		/*
-			Partes del Closure
+		Partes del Closure
 
 			Entorno: Todas las variables locales que se encuentran en la función externa.
 			Funcion Constructora: Solo me sirve para declarar el interior del closure.
 			Funcion Externa: Function que me permite ejecutar 
 			Funcion Interna: Funciones que se encuentran dentro de la function constructora, acceden a las variables locales.
-		*/
+	*/
+
+	/*
+		Closure Carga - Inicio de Javascript
+		Esta funcion se llama inmediatamente despues de que el archivo js se carga, al ser un closure guardara todas su variables locales y las funciones que creemos. 
+	*/
+	(function(){
 
 		//Closure básico - Manejo memoria
 		function crear(){ //funcion constructora
@@ -46,13 +54,61 @@
 
 		//Con closure - persona es el closure ya que guarda tanto a la var local nombre como a la funcion interna muestra_nombre()
 		var persona=crear();
-		//Funcion Externa = persona con parentesis
-		persona();
 		/*
 		Aqui ya se ejecuto  muestra_nombre(); a traves de persona y la var nombre aun existe ya que si vuelvo a llamar a persona,
 		la funcion interna asociada necesita de estas variables locales.
 		*/
 
+		/*
+			Closure - Metodos Privados
+
+			funcion autoejecutable - (function(){....})();
+			funcion publica - Es aquella que puedo acceder con el closure
+			funcion privada - Se encuentra dentro del closure no puedo acceder
+		*/
+
+		var Usuario=function(age, weigth, height){
+			
+			var edad = age;
+			var peso = weigth;
+			var altura = height;
+
+			//Metodo privado
+			function imprimir(){
+				alert("Edad: "+edad+" Peso: "+peso+" Altura: "+altura);
+			}
+
+			/*
+				Varios return
+				return{
+					....
+					nombre_metodo=function(){},
+				}
+			*/
+			return{
+				//Metodos publicos
+				cumple:function(){
+						imprimir();
+						edad=edad+1;
+						//Acceso al metodo privado
+						imprimir();
+					},
+			 	dieta:function(){
+						peso-=1;
+						imprimir();
+					}
+			}
+		}
+
+		/*
+			Emulando la instanciación de objetos
+		*/
+		var p1 = new Usuario(18,66,180);
+		p1.cumple();
+		p1.dieta();
+
+		var p2 = new Usuario(90,44,130);
+		p2.cumple();
 
 	})();
 	</script>
