@@ -38,4 +38,7 @@
     alert("Lat: "+lat+" Long: "+lon);
   }
 
+  /*
+    AJAX
+  */
 })();
