@@ -1,9 +1,9 @@
 $(document).ready(function(){
 /*Slider*/
 	var fotos;
-	for(i=1;i<5;i++){
+	for(i=1;i<40;i++){
 		var name=''+i;
-		fotos+="<li><center><img src=images/"+name+".png width='200'/></center></li>";
+		fotos+="<li><center><img src=images/"+name+".jpg width='400'/></center></li>";
 	}
 	
 	$('.bxslider').html(fotos);
