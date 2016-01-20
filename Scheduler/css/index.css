@@ -41,7 +41,7 @@ p{
 	color: #FF5E00;
 }
 .gray{
-	color: #787473;
+	color:#222222;
 }
 .main_header{
 	position: absolute;
@@ -103,6 +103,7 @@ p{
 }
 .background .header_desc{
 	width: 33%;
+	padding: 0.5em;
 	display: inline-block;
 }
 .background .header_desc h3{
@@ -110,8 +111,8 @@ p{
 	color: black;
 }
 .background .header_desc p{
-	text-align: center;
-	color:#222222;
+	line-height: 1.5em;
+	padding: 0 1em;
 }
 .background{
   background-image: url(../images/escom.png);
@@ -122,8 +123,14 @@ p{
   -webkit-filter: grayscale(1);
   filter: grayscale(1);
 }
-
-
+.icon_big{
+	text-align: center;
+	width: 100%;
+	font-size: 2em;
+	margin: 0.3em 0;
+	color: black;
+	display: block;
+}
 
 .icon-pencil:before {
     content: "\e900";
