@@ -31,14 +31,27 @@
     */
   }
 
+  var API_WEATHER_KEY = "9df27d9983af4c07e0d437b769b4d6fe";
+  var API_WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather?APPID=" + API_WEATHER_KEY + "&";
+
   function f_success(position){
-    var lat = position.coords.latitude;
-    var lon = position.coords.longitude;
-
-    alert("Lat: "+lat+" Long: "+lon);
-  }
-
-  /*
+    var lati = position.coords.latitude;
+    var longi = position.coords.longitude;
+    console.log("lat: "+lati+"long: "+longi);
+      /*
     AJAX
-  */
+
+    $.getJSON(API_WEATHER_URL + "lat=" + lati + "&lon=" + longi, getCurrentWeather);
+    function getCurrentWeather(data){
+    console.log(data);
+
+  }  */
+  $.ajax({
+    url:API_WEATHER_URL + "lat=" + lati + "&lon=" + longi,
+    success: function(data){
+      console.log(data);
+    }
+  });
+  }//geolocation
+
 })();
