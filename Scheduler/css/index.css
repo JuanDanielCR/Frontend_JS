@@ -157,7 +157,10 @@ p{
 main{
 	background: #ddd url(../images/paper.png) repeat top left;
 	margin-top: -2em;
-	padding-top:2em;
+	padding: 2em 2em;
+}
+main h2{
+	color: #ff7518;
 }
 
 .icon-pencil:before {
