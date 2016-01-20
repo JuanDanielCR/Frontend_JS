@@ -1,0 +1,49 @@
+body{
+	font-family: Oswald;
+	font-size: 18px;
+}
+p{
+	font-family: Roboto;
+}
+.white{
+	color: white;
+}
+.main_header{
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 99;
+}
+
+.main_header .header_title{
+	border-bottom: 5px solid #ff7518;
+	color: white;
+	letter-spacing: 2px;
+	margin: 1em auto;
+	padding-bottom: 0.5em;
+	text-align: center;
+	text-transform: uppercase;
+	width: 50%;
+}
+
+.main_header .header_title .header_name{
+	color: #ff7518;
+	text-transform: uppercase;
+}
+.main_header .header_desc h3{
+	text-align: center;
+}
+.main_header .header_desc p{
+	text-align: center;
+	color: #222222;
+}
+.background{
+  background-image: url(../images/escom.jpg);
+  background-size: cover;
+  
+  /*IMPORTANTE*/
+  height: 100vh;
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+}
