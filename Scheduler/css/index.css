@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'icomoon';
-    src:    url('../fonts/icomoon.eot?9p1kxn');
-    src:    url('../fonts/icomoon.eot?9p1kxn#iefix') format('embedded-opentype'),
-        url('../fonts/icomoon.ttf?9p1kxn') format('truetype'),
-        url('../fonts/icomoon.woff?9p1kxn') format('woff'),
-        url('../fonts/icomoon.svg?9p1kxn#icomoon') format('svg');
+    src:    url('../fonts/icomoon.eot?95f7kt');
+    src:    url('../fonts/icomoon.eot?95f7kt#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?95f7kt') format('truetype'),
+        url('../fonts/icomoon.woff?95f7kt') format('woff'),
+        url('../fonts/icomoon.svg?95f7kt#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -18,12 +18,12 @@
     font-variant: normal;
     text-transform: none;
     line-height: 1;
-    font-size: 1.2em;
 
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
 body{
 	font-family: Oswald;
 	font-size: 18px;
@@ -31,14 +31,17 @@ body{
 p{
 	font-family: Roboto;
 }
+.brown{
+	color: #2C1608;
+}
 .black{
 	color: black;
 }
 .white{
-	color: white;
+	color: #662B00;
 }
 .orange{
-	color: #FF5E00;
+	color: #662B00;
 }
 .gray{
 	color:#222222;
@@ -52,7 +55,7 @@ p{
 }
 
 .main_header .header_title{
-	border-bottom: 5px solid #FF5E00;
+	border-bottom: 5px solid #2C1608;
 	color: white;
 	letter-spacing: 2px;
 	margin: .5em auto;
@@ -62,7 +65,7 @@ p{
 	width: 50%;
 }
 .main_header .header_title .header_name{
-	color: #FF5E00;
+	color: #2C1608;
 	text-transform: uppercase;
 }
 .main_header .social{
@@ -108,7 +111,6 @@ p{
 }
 .background .header_desc h3{
 	text-align: center;
-	color: black;
 }
 .background .header_desc p{
 	line-height: 1.5em;
@@ -120,17 +122,38 @@ p{
   
   /*IMPORTANTE*/
   height: 100vh;
-  -webkit-filter: grayscale(1);
-  filter: grayscale(1);
 }
 .icon_big{
 	text-align: center;
 	width: 100%;
 	font-size: 2em;
 	margin: 0.3em 0;
-	color: black;
 	display: block;
 }
+.background .intro{
+	margin-top: 0.8em;
+	width: 100%;
+}
+.background .intro h3, .background .intro h4{
+	text-align: center;
+}
+.background .intro .button_begin{
+	margin-top: 1.4em;
+}
+.background .intro .button_begin a{
+	background-color:#2C1608; 
+	border: 2px solid #2C1608; 
+	border-radius: 5px;
+	color: white;
+	letter-spacing: 1px;
+	margin: 0 auto;
+	text-align: center;
+	padding: 0.5em 0.8em;
+}
+.background .intro .button_begin a:hover{
+	text-decoration: none;
+}
+
 main{
 	background: #ddd url(../images/paper.png) repeat top left;
 	margin-top: -2em;
@@ -145,6 +168,9 @@ main{
 }
 .icon-books:before {
     content: "\e902";
+}
+.icon-library:before {
+    content: "\e91e";
 }
 .icon-folder-upload:before {
     content: "\e903";
@@ -166,6 +192,12 @@ main{
 }
 .icon-floppy-disk:before {
     content: "\e909";
+}
+.icon-mug:before {
+    content: "\e91f";
+}
+.icon-accessibility:before {
+    content: "\e920";
 }
 .icon-menu:before {
     content: "\e90a";
@@ -227,4 +259,3 @@ main{
 .icon-git:before {
     content: "\e91d";
 }
-
