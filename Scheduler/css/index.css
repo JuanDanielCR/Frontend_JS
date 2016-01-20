@@ -1,3 +1,28 @@
+@font-face {
+    font-family: 'icomoon';
+    src:    url('fonts/icomoon.eot?9p1kxn');
+    src:    url('fonts/icomoon.eot?9p1kxn#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.ttf?9p1kxn') format('truetype'),
+        url('fonts/icomoon.woff?9p1kxn') format('woff'),
+        url('fonts/icomoon.svg?9p1kxn#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 body{
 	font-family: Oswald;
 	font-size: 18px;
@@ -8,6 +33,9 @@ p{
 .white{
 	color: white;
 }
+.orange{
+	color: #FF5E00;
+}
 .main_header{
 	position: absolute;
 	top: 0;
@@ -17,7 +45,7 @@ p{
 }
 
 .main_header .header_title{
-	border-bottom: 5px solid #ff7518;
+	border-bottom: 5px solid #FF5E00;
 	color: white;
 	letter-spacing: 2px;
 	margin: 1em auto;
@@ -28,18 +56,26 @@ p{
 }
 
 .main_header .header_title .header_name{
-	color: #ff7518;
+	color: #FF5E00;
 	text-transform: uppercase;
 }
-.main_header .header_desc h3{
-	text-align: center;
+.background{
+	padding-top: 8em;
 }
-.main_header .header_desc p{
+.background .header_desc{
+	width: 33%;
+	display: inline-block;
+}
+.background .header_desc h3{
 	text-align: center;
-	color: #222222;
+	color:  #222222;
+}
+.background .header_desc p{
+	text-align: center;
+	color:#222222;
 }
 .background{
-  background-image: url(../images/escom.jpg);
+  background-image: url(../images/escom.png);
   background-size: cover;
   
   /*IMPORTANTE*/
@@ -47,3 +83,97 @@ p{
   -webkit-filter: grayscale(1);
   filter: grayscale(1);
 }
+
+
+
+.icon-pencil:before {
+    content: "\e900";
+}
+.icon-droplet:before {
+    content: "\e901";
+}
+.icon-books:before {
+    content: "\e902";
+}
+.icon-folder-upload:before {
+    content: "\e903";
+}
+.icon-display:before {
+    content: "\e904";
+}
+.icon-laptop:before {
+    content: "\e905";
+}
+.icon-mobile:before {
+    content: "\e906";
+}
+.icon-mobile2:before {
+    content: "\e907";
+}
+.icon-tablet:before {
+    content: "\e908";
+}
+.icon-floppy-disk:before {
+    content: "\e909";
+}
+.icon-menu:before {
+    content: "\e90a";
+}
+.icon-menu3:before {
+    content: "\e90b";
+}
+.icon-menu4:before {
+    content: "\e90c";
+}
+.icon-plus:before {
+    content: "\e90d";
+}
+.icon-minus:before {
+    content: "\e90e";
+}
+.icon-cross:before {
+    content: "\e90f";
+}
+.icon-checkmark:before {
+    content: "\e910";
+}
+.icon-arrow-up:before {
+    content: "\e911";
+}
+.icon-arrow-right:before {
+    content: "\e912";
+}
+.icon-arrow-down:before {
+    content: "\e913";
+}
+.icon-arrow-left:before {
+    content: "\e914";
+}
+.icon-facebook2:before {
+    content: "\e915";
+}
+.icon-twitter:before {
+    content: "\e916";
+}
+.icon-github:before {
+    content: "\e917";
+}
+.icon-linkedin:before {
+    content: "\e918";
+}
+.icon-chrome:before {
+    content: "\e919";
+}
+.icon-firefox:before {
+    content: "\e91a";
+}
+.icon-IE:before {
+    content: "\e91b";
+}
+.icon-html-five:before {
+    content: "\e91c";
+}
+.icon-git:before {
+    content: "\e91d";
+}
+
