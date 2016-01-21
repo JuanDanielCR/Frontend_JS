@@ -45,14 +45,23 @@
 			celda.ocupada=false;
 		}
 	}
+
+	function comprobarDisponibilidad(id_celda){
+		var disponible = true;
+		var celda=horario[id_celda];
+		if(celda.materias.length>0){
+			disponible=false;
+		}
+		return disponible;
+	}
 	/*Objeto JSON para un horario*/
 	var horario = [];
-	
+
 	crearHorario();
 	var celda_vista=horario[9];
 	agregarMateria(9,"Algebra","Neumann",10);
+	agregarMateria(10,"Porgra","Juan V",8);
 	console.log(celda_vista);
-	borrarMateria(9,"IES","Neumann");
-	console.log(celda_vista);
+	console.log(comprobarDisponibilidad(10));
 
 })();
