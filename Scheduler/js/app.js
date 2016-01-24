@@ -54,14 +54,35 @@
 		}
 		return disponible;
 	}
+
+	function guardarHorario(object_Master, object_Horario){
+		object_Master.push(object_Horario);
+	}
+
+	function pintarCeldas(object_Master){
+		var table = $('table_horario');
+		
+	}
+
+
 	/*Objeto JSON para un horario*/
 	var horario = [];
 
+	/*Objeto JSON para guardar horarios*/
+	var master = [];
+
 	crearHorario();
 	var celda_vista=horario[9];
+
+	/*
 	agregarMateria(9,"Algebra","Neumann",10);
 	agregarMateria(10,"Porgra","Juan V",8);
 	console.log(celda_vista);
 	console.log(comprobarDisponibilidad(10));
+	*/
+
+	/*Prueba para guardar materias*/
+	guardarHorario(master,horario);
+	console.log(master);
 
 })();

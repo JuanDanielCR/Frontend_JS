@@ -163,6 +163,44 @@ main h2{
 	color: #ff7518;
 }
 
+main table{
+	border: 1px solid gray;
+	display: block;
+	width: 90%;
+}
+main table thead{
+	background-color: gray;
+	display: block;
+	padding: 0;
+	width: 100%;
+}
+main table th{
+	display: block;
+	text-align: center;
+	width: 100%;
+}
+main table tr{
+	display: block;
+	width: 100%;
+}
+main table td{
+	display: block;
+}
+main table tfoot{
+	display: block;
+	width: 100%;
+}
+main table tfoot tr{
+	display: block;
+	width: 100%;
+}
+main table tfoot tr td{
+	background-color: red;
+	display: block;
+	width: 100%;
+}
+
+
 .icon-pencil:before {
     content: "\e900";
 }
