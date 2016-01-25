@@ -164,8 +164,12 @@ main h2{
 }
 
 main table{
+	background-color: white;
 	border: 1px solid gray;
 	display: block;
+	font-size: 0.8em;
+	text-align: center;
+	margin: 0 auto;
 	width: 90%;
 }
 main table thead{
@@ -179,12 +183,26 @@ main table th{
 	text-align: center;
 	width: 100%;
 }
-main table tr{
+main table tbody{
 	display: block;
+	width: 100%
+}
+main table tbody tr{
+	border-bottom: 1px solid black;
+	display: block;
+	overflow: hidden;
 	width: 100%;
 }
-main table td{
+main table tbody td{
+	border-left: 1px solid black;
 	display: block;
+	float: left;
+	width: 14.2%;
+}
+main table tbody td p{
+	display: block;
+	width: 80%;
+	margin: 5px auto;
 }
 main table tfoot{
 	display: block;

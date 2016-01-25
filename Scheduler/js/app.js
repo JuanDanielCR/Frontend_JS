@@ -15,8 +15,9 @@
 	/*LOGICA*/
 
 
-	function crearHorario(){
-		for(var i=0;i<75;i++){
+	function crearHorario(materias){
+		var j=materias*5;
+		for(var i=0;i<j;i++){
 			horario.push({
 				"id_celda":i,
 				"ocupada":false,
@@ -60,8 +61,31 @@
 	}
 
 	function pintarCeldas(object_Master){
-		var table = $('table_horario');
-		
+		var table = $('table_container');
+		var template = "<table id='table_horario'>
+			<thead>
+				<tr>
+					<th>Horario</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Horario</td>
+					<td>Lunes</td>
+					<td>Martes</td>
+					<td>Miércoles</td>
+					<td>Jueves</td>
+					<td>Viernes</td>
+					<td>Sabado</td>
+				</tr>"
+		var footer = "</tbody>
+		<tfoot>
+				<tr>
+					<td>Footer</td>
+				</tr>
+			</tfoot>
+		</table>";
+
 	}
 
 
@@ -71,7 +95,9 @@
 	/*Objeto JSON para guardar horarios*/
 	var master = [];
 
-	crearHorario();
+	var materias = $('#materias').val();
+	crearHorario(materias);
+	
 	var celda_vista=horario[9];
 
 	/*
