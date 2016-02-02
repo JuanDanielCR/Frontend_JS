@@ -58,12 +58,20 @@ var another_stooge = Object.create(stooge);
 //another_stooge has all the properties of stooge just like first-name, etc.
 
 //Prototype Chain and Delegation
-//The Delegation its a process that uses de Prototype Chain, if we look for a propertie in an object and we can find it, JS will
+//The Delegation its a process that uses de Prototype Chain, if we look for a property in an object and we can find it, JS will
 //look for this prop in the object that we have as a prototype (del que heredamos), this will happens succesivily
 
-//Function as a propertie value:
-//If an object has a function in a propertie value we will invoke it with its name + (); 
+//Function as a property value:
+//If an object has a function in a property value we will invoke it with its name + (); 
 
 var message = {"saludo":function(o){console.log(o)}};
 message.saludo; //function(){...}
 message.saludo("hola"); //hola en consola
+
+//Reflection: The action of inspect an object to determine its properties, and examine the propo values
+//type of operator retrieves the type of the prop value
+
+typeof message.saludo; //function
+typeof stooge.first-name; //String
+
+message.hasOwnPropertiy('saludo'); //true -  hasOwnPropertiy('property name');
