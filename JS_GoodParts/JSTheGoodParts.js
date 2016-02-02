@@ -76,8 +76,15 @@ typeof stooge.first-name; //String
 
 message.hasOwnPropertiy('saludo'); //true -  hasOwnPropertiy('property name');
 
-//Enumeration: Method that loops all the properties names in an object
+//Enumeration: Method that loops all the properties names in an object.
+//Methods for enumeration for in( ) - random order, for() + array in order.
 var names;
 for(names in stooge){
 	console.log(names +": = " stooge[names]);
+}
+
+var props_stooge = ['first-name','last-name'];
+var i;
+for(i=0; i<props_stooge.length; i++){
+	console.log(stooge.props_stooge[i]);
 }
