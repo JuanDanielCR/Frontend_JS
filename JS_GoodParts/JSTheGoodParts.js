@@ -56,3 +56,14 @@ if (typeof Object.create !== 'function') {
 //Object.create es actualizado con una nueva funcion que recibe un objeto del cual heredaremos.
 var another_stooge = Object.create(stooge);
 //another_stooge has all the properties of stooge just like first-name, etc.
+
+//Prototype Chain and Delegation
+//The Delegation its a process that uses de Prototype Chain, if we look for a propertie in an object and we can find it, JS will
+//look for this prop in the object that we have as a prototype (del que heredamos), this will happens succesivily
+
+//Function as a propertie value:
+//If an object has a function in a propertie value we will invoke it with its name + (); 
+
+var message = {"saludo":function(o){console.log(o)}};
+message.saludo; //function(){...}
+message.saludo("hola"); //hola en consola
