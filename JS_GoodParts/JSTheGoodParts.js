@@ -88,3 +88,7 @@ var i;
 for(i=0; i<props_stooge.length; i++){
 	console.log(stooge.props_stooge[i]);
 }
+
+//Delete: delete object.prop_name; Deletes a property from an object.
+
+delete message.saludo;
