@@ -1,5 +1,17 @@
 /*
 Objects
+
+INDEX:
+	Object Literals
+	Retrieval
+	Update
+	Reference
+	Prototype
+	Reflection
+	Enumeration
+	Delete
+	Global Abatement
+
 An object is a container of properties, each prop has its own property.name and its property value.
 Object in JS are mutable keyed collections.
 Numbers, Strings and Booleans are Object-liked, becuase they have methods that are inmmutable.
