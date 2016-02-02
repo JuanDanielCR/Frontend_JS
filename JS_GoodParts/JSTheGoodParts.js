@@ -47,9 +47,12 @@ var middle = stooge["middle-name"] || "none"; //stooge.middle-name doesnt exists
 //We can choose from which pbject are we going to inherit 
 if (typeof Object.create !== 'function') {
 	Object.create = function (o) {
-	var F = function () {};
-	F.prototype = o;
-	return new F();
-};
+		var F = function () {};
+		F.prototype = o;
+		return new F();
+	};
+}
 //Si el objeto creado no es una funcion, actualizamos la propiedad .create de Object.
-//Object.create es actualizado con una nueva funcion que recibe un objeto del cual herdaremos
+//Object.create es actualizado con una nueva funcion que recibe un objeto del cual heredaremos.
+var another_stooge = Object.create(stooge);
+//another_stooge has all the properties of stooge just like first-name, etc.
