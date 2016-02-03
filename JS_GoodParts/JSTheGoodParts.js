@@ -173,14 +173,15 @@ function closure1(increment){
 
 	Invocation: . dot operator or ['name'] operator.
 	'this' makes reference to the Object where function is stored
+	Public Method- methods that get their context from this.
 */
 var Persona = {
 	"edad":0,
-	"cumple":function(){
+	"cumple":function(){//public methid
 		this.edad++; 
 	},
 	"whats_this":function(){
 		console.log(this); //Prints the Object
 	}
 }
-Persona.cumple();//cumple() - method.
+Persona.cumple();//cumple() - method invocation 
