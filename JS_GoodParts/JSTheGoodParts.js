@@ -208,3 +208,12 @@ var suma = add(1,2); //Saving on a variable an invoking
 var suma2 =  add;//First saving
 suma2(1,2); //Then invoking
 
+/*
+	3. CONSTRUCTOR - Creates an Object with a function.
+
+	When a function is intended to be used with the 'new' prefix, they are called constructors.
+	A constructor creates a new JS Object, with a hidden link to the value of the function prototype member.
+
+	'this' parameter will be bound to the new Object.
+	'return' value will be affected.
+*/
