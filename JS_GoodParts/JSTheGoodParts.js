@@ -217,3 +217,33 @@ suma2(1,2); //Then invoking
 	'this' parameter will be bound to the new Object.
 	'return' value will be affected.
 */
+var Auto = function(nombre, marca){
+	this.nombre = nombre;
+	this.marca = marca;
+}//Constructor
+
+//metodos del objeto, usamos prototype ya que los estamos ligando a prototype de la function
+Auto.prototype.getNombre = function(){return this.nombre;}
+Auto.prototype.getMarca = function(){return this.marca;}
+
+var myAuto = new Auto('Mazda 3', 'Mazda');
+
+myAuto.getNombre(); //Mazda 3
+
+/*
+	ARGUMENTS PARAMETER
+
+	The 'arguments' parameter is an extra param, send to the function on invocation.
+	arguments = array that contains all the params that we passed to the function
+*/
+
+function multiplicacion(){
+	var i, mult=1;
+	for (i = 0; i <arguments.length; i++) {
+			mult=mult*arguments[i];
+	}
+	return mult;
+}
+
+var mult= multiplicacion(1,2,1,2,3,4);
+console.log(mult);
