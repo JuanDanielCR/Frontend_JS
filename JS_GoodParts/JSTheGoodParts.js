@@ -154,6 +154,7 @@ function closure1(increment){
 
 /*
 	Invocation
+	Operator: function_name(params);
 	Passing the program control and parameters to a new function.
 
 	THIS AND ARGUMENTS
@@ -166,5 +167,20 @@ function closure1(increment){
 	2. Function Pattern.
 	3.Constructor Pattern.
 	4. Apply Pattern.
+	
+	1. METHOD
+	When a function is stored inside an object, as a property value it is call method.
 
+	Invocation: . dot operator or ['name'] operator.
+	'this' makes reference to the Object where function is stored
 */
+var Persona = {
+	"edad":0,
+	"cumple":function(){
+		this.edad++; 
+	},
+	"whats_this":function(){
+		console.log(this); //Prints the Object
+	}
+}
+Persona.cumple();//cumple() - method.
