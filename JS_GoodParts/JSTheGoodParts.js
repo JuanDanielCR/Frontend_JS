@@ -1,5 +1,11 @@
 /*
-Objects
+Compilation of code explaining a subset of the good parts of JS.
+Juan Daniel Castillo Reyes
+http://juandanielcr.me
+
+JS THE GOOD PARTS
+
+OBJECTS
 
 INDEX:
 	Object Literals
@@ -104,3 +110,61 @@ for(i=0; i<props_stooge.length; i++){
 //Delete: delete object.prop_name; Deletes a property from an object.
 
 delete message.saludo;
+
+/*
+	FUNCTIONS
+	Functions are a set of statements
+	Functions are the fundamental modular unit in JS, they describe the behavior of an Object.
+		-Code Reuse
+		-Information Hiding 
+		-Composition
+
+	Functions are Objects, so they are linked to Function.prototype
+	Objects has properties.
+	Functions has two hidden properties:
+	-context
+	-behavior (content)
+
+	It also has a prototype propertie.
+
+	Since functions are Objects they can be stored in variables, they have methods, 
+	they can be passed as arguments or they can be returned.
+
+	Function Literal
+
+	A function object is created by a function literal, it has four parts:
+	1. reserved word 'function'
+	2. function name (opcional) - if a function doesn´t have a name it is an anonymus function
+	3. funtcion params -  They will be treat as variables and will be initialized at the moment of invocation.
+	   If we send more params than expected JS will ignore them, how ever if we send less the missing params will be undefined.
+	4. body {block}
+
+	"The function object created by a function literal contains a link to its outer context". Closure definition
+*/
+
+var outer = 1;
+function closure1(increment){
+	var innner = 10;
+	outer++;
+	//We can acces outer because closure1() is linked to the outer context.
+	return inner + outer;
+}
+
+//inner++; Causes an error because inner is inside closure1()
+
+/*
+	Invocation
+	Passing the program control and parameters to a new function.
+
+	THIS AND ARGUMENTS
+	In addition to the normal params that any function recieves, it will receive two extra params:
+	-this: The value of 'this' its determined by the invocation method that we use.
+	-arguments
+
+	We have four invocation pattern:
+	1. Method Pattern.
+	2. Function Pattern.
+	3.Constructor Pattern.
+	4. Apply Pattern.
+
+*/
