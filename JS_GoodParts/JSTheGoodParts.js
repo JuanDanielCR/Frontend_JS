@@ -185,3 +185,26 @@ var Persona = {
 	}
 }
 Persona.cumple();//cumple() - method invocation 
+
+/*
+	2. FUNCTION Invocation
+	When a function is not a property from an object, then it is invoked as a function
+	
+	--- add(1,3);
+	
+	---- var suma = add(1,1);
+	
+	-----var suma = add;
+		suma();
+*/
+function add(n1,n2){
+	console.log(n1+n2);
+	console.log(this);
+}
+
+add(1,2); //Invocation
+var suma = add(1,2); //Saving on a variable an invoking
+
+var suma2 =  add;//First saving
+suma2(1,2); //Then invoking
+
