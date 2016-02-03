@@ -199,7 +199,7 @@ Persona.cumple();//cumple() - method invocation
 */
 function add(n1,n2){
 	console.log(n1+n2);
-	console.log(this);
+	return 3;
 }
 
 add(1,2); //Invocation
