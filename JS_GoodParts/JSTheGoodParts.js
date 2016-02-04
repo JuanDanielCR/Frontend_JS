@@ -247,3 +247,7 @@ function multiplicacion(){
 
 var mult= multiplicacion(1,2,1,2,3,4);
 console.log(mult);
+
+//Return: The return statement is used to cause a function to returns earlier.
+//A function always return a value, if return is not specified the function returns undefined
+
