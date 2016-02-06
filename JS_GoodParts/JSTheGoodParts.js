@@ -271,3 +271,19 @@ var calificar = function(calif){
 		console.log(error.name " "+error.message);
 	}
 }
+
+/*
+	SCOPE
+	The scope controls the visibility and lifetime of functions, this provides an automatic memory managment.
+	JS - has a function scope.
+	C, Java, etc. - have block scope.
+	As soon as JS has function scope its better to declare all variables at the beginning of the function
+*/
+
+var scopes = function(){
+	var a,b,c;
+	a=b=c=0;
+	if(a==0)
+		b=5;
+	console.log(b)//5
+}
