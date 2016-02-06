@@ -327,3 +327,12 @@ var myObject = function(){
 myObject.show();
 myObject.increment(2);
 
+/*
+	CALLBACKS
+	Funciones que se pasan como parametros para ejecutar acciones no sincronicas
+*/
+
+var bodys = document.getElementsByTagName("body");
+bodys.addEventListener('click',function(){
+	console.log("Ouch");
+})
