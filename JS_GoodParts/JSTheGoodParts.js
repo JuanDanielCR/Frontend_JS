@@ -310,6 +310,8 @@ var scopes = function(){
 	USOS DE CLOSURE
 
 	Encapsulamiento o Iformation Hiding
+	Constructor
+	
 */
 
 var myObject = function(){
