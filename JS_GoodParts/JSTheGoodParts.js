@@ -287,3 +287,39 @@ var scopes = function(){
 		b=5;
 	console.log(b)//5
 }
+
+
+/*
+	CLOSURE
+	Platzi: "Tipo especialde objeto que combina una función con el entorno en que fue creado".
+	Js_Good: "A function object that contains a link to its outer context".
+
+	Un closure surge del scope y la persistencia en memoria de algunas variables, como ya sabemos
+	es posible declarar funciones dentro de funciones, la funcione interior tiene acceso a sus vars y las vars de la funcion
+	donde fue declarada (ya que tiene un link a su outer context). 
+
+	Como la inner_function tiene acceso a las variables de la outer function, si la outer function termina de ejecutarse, pero
+	de alguna forma la funcion interna sigue viva, JS quitara de memoria a la funcion externa pero no destruira sus variables, ya
+	que las inner_funciotns pueden llegar a usarlas.
+
+	MULTIPLES RETURN
+
+	La sentencia return devulve cualquier valor valido de JS, así, una funcion puede devolver un Objeto.
+	y un objeto tiene propiedades, y el valor de una propiedad puede ser una funcion.
+*/
+
+var myObject = function(){
+	var score = 0;//esta variable no morira
+
+	return{
+		increment:function(extra){score=score+extra; return score;},
+		decrement:function(minus){score=score-minus; return score;},
+		show:function(){console.log(score)}
+	} 
+}();
+//IMPORTANT Los parentesis al final hacen que la funcion se invoque, asi myObject gurarda el objeto devuelto en return, 
+//y no la funcion en si. Luego, aunque la funcion haya temrinado de ejecutarse var score aun existe y accedo a ella a traves de los metodos
+
+myObject.show();
+myObject.increment(2);
+
