@@ -306,6 +306,10 @@ var scopes = function(){
 
 	La sentencia return devulve cualquier valor valido de JS, así, una funcion puede devolver un Objeto.
 	y un objeto tiene propiedades, y el valor de una propiedad puede ser una funcion.
+
+	USOS DE CLOSURE
+
+	Encapsulamiento o Iformation Hiding
 */
 
 var myObject = function(){
