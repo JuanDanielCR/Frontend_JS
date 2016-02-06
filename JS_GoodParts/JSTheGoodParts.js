@@ -251,3 +251,23 @@ console.log(mult);
 //Return: The return statement is used to cause a function to returns earlier.
 //A function always return a value, if return is not specified the function returns undefined
 
+//EXCEPTIONS
+/*
+	Javascript manages exceptions with the statement 'throw' and pair try{...}catch(e){...}
+	throw{prop_name:prop_value,...} sends an object 'e' to the catch(e){...} block when exception an exception occurs.
+*/
+
+var calificar = function(calif){
+	try{
+		if(calif>10 || calif<0){
+			throw{
+				name:'Error',
+				message:'Invalid Grade'
+			}
+		}else{
+			console.log('Grade: '+calif);
+		}
+	}catch(error){
+		console.log(error.name " "+error.message);
+	}
+}
