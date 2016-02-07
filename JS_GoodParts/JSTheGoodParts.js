@@ -337,3 +337,11 @@ var bodys = document.getElementsByTagName("body");
 bodys.addEventListener('click',function(){
 	console.log("Ouch");
 })
+
+/*
+	CASCADE
+	Some methods dont have a return value, if this methods returns the object(this) where they are nested in, instead of 
+	undefined we wold be be able to produce 'cascades'.
+
+	In a cascade we can call many methods on the same object in a sequence.
+*/
