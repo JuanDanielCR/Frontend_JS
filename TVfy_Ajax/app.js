@@ -81,7 +81,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
           var id = (0, _jquery2.default)(this).data('id');
           _jquery2.default.post('/votes/' + id, function () {
-            (0, _jquery2.default)(this).hide();
+            console.log('yeah' + id);
           });
         });
         //event

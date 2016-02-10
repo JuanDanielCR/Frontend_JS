@@ -111,7 +111,7 @@ $(document).ready(function(){
 
             var id = $(this).data('id');
             $.post('/votes/'+id,function(){
-              $(this).hide();
+              console.log('yeah'+id)
             })
           })
           //event 
