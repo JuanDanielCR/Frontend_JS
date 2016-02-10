@@ -40,6 +40,7 @@ $(document).ready(function(){
                   .replace(":summary:",item.show.summary)
                   .replace(":img:",item.show.image.medium)
                   .replace(":img_alt:", item.show.name+" Logo")
+                  .replace(":id:",item.id)
 
          container.append($(template_bind).fadeIn(1500));
           })
@@ -60,7 +61,7 @@ $(document).ready(function(){
           '<div class="right info">' +
             '<h1>:name:</h1>' +
             '<p>:summary:</p>' +
-            '<button class="btn_like"> + </button>'+
+            '<button data-id=:id: class="btn_like"> + </button>'+
           '</div>' +
         '</article>';
   /*
@@ -98,6 +99,7 @@ $(document).ready(function(){
                   .replace(":summary:",item.summary)
                   .replace(":img:",item.image.medium)
                   .replace(":img_alt:", item.name+" Logo")
+                  .replace(":id:",item.id)
 
          container.append($(template_bind).fadeIn(800));
           
@@ -106,6 +108,11 @@ $(document).ready(function(){
           button_container.on('click',function(ev){
             var me_gusta=$(this);
             me_gusta.closest('.tv-show').addClass('likeado');
+
+            var id = $(this).data('id');
+            $.post('/votes/'+id,function(){
+              $(this).hide();
+            })
           })
           //event 
         })

@@ -28,7 +28,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
         (0, _jquery2.default)('.tv-show').remove();
         data.forEach(function (item) {
-          var template_bind = template.replace(":name:", item.show.name).replace(":summary:", item.show.summary).replace(":img:", item.show.image.medium).replace(":img_alt:", item.show.name + " Logo");
+          var template_bind = template.replace(":name:", item.show.name).replace(":summary:", item.show.summary).replace(":img:", item.show.image.medium).replace(":img_alt:", item.show.name + " Logo").replace(":id:", item.id);
 
           container.append((0, _jquery2.default)(template_bind).fadeIn(1500));
         });
@@ -41,7 +41,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     :name:
     Me sirven para despues reemplazarso por lo valores de JSON Object
    */
-  var template = '<article class="tv-show">' + '<div class="left img-container">' + '<img src=":img:" alt=":img_alt:">' + '</div>' + '<div class="right info">' + '<h1>:name:</h1>' + '<p>:summary:</p>' + '<button class="btn_like"> + </button>' + '</div>' + '</article>';
+  var template = '<article class="tv-show">' + '<div class="left img-container">' + '<img src=":img:" alt=":img_alt:">' + '</div>' + '<div class="right info">' + '<h1>:name:</h1>' + '<p>:summary:</p>' + '<button data-id=:id: class="btn_like"> + </button>' + '</div>' + '</article>';
   /*
     AJAX como $ es un funcion esta puede recibir funciones como ajax()
     La funcion ajax(url,setting)
@@ -70,7 +70,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
         //Uso del metodo replace() que actua sobre Strings
 
-        var template_bind = template.replace(":name:", item.name).replace(":summary:", item.summary).replace(":img:", item.image.medium).replace(":img_alt:", item.name + " Logo");
+        var template_bind = template.replace(":name:", item.name).replace(":summary:", item.summary).replace(":img:", item.image.medium).replace(":img_alt:", item.name + " Logo").replace(":id:", item.id);
 
         container.append((0, _jquery2.default)(template_bind).fadeIn(800));
 
@@ -78,6 +78,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
         button_container.on('click', function (ev) {
           var me_gusta = (0, _jquery2.default)(this);
           me_gusta.closest('.tv-show').addClass('likeado');
+
+          var id = (0, _jquery2.default)(this).data('id');
+          _jquery2.default.post('/votes/' + id, function () {
+            (0, _jquery2.default)(this).hide();
+          });
         });
         //event
       });
