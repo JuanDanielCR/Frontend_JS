@@ -18,6 +18,9 @@ var Persona = (function(){
 		},
 		set_nombre: function(name){
 			nombre = name;
+		},
+		put_global: function(){
+			console.log(global)
 		}
 	}
 })();
