@@ -1,0 +1,2 @@
+@import "../css/normalize.css";
+body{background-color:#ff6347;text-size:16px}h1,table h1{color:#fff;text-align:center}hr{border-top:2px dashed #bf351c;border-color:#bf351c;color:#ff6347}table{margin:0 auto;background:#fff}.center-frame{display:block;margin:0 auto;text-align:center}iframe{display:inline-block}footer{border-top:2px dashed;border-color:#bf351c}footer .footer-divider{display:inline-block;width:30%}footer .footer-divider h3{text-align:center;color:#bf351c}table{border:1px solid;border-color:#bf351c}
