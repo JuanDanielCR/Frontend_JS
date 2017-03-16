@@ -68,6 +68,56 @@ header .header-list .list-item:hover{
 	font-family: 'Lobster', cursive;
 	font-size: 2em;
 }
+.services-container{
+	margin: 2em auto;
+	width: 80%;
+}
+.services-container article{
+	display: inline-block;
+	vertical-align: top;
+}
+.services-container h2{
+	color: #39C48E;
+	font-family: 'Lobster', cursive;
+	font-size: 1.5em;
+	font-weight: lighter;
+}
+.services-container .main{
+	width: 60%;
+	margin: 0;
+}
+.services-container .adds{
+	width: 35%;
+	margin: 0;
+}
+.services-container .adds input{
+	border: solid 1px #39C48E;
+	line-height: 2em;
+}
+.services-container .adds .search{
+	color: white;
+	padding: 9px;
+	background-color: #39C48E;
+	border-radius: 2px;
+	margin-top: 3px;
+}
+.services-container p{
+	font-size: 0.8em;
+}
+.services-container ul{
+	padding: 1em;
+	border-bottom: 1px solid gray;
+	color: #39C48E;
+}
+.services-container ul li{
+	color: gray;
+	padding-bottom: 1em;
+	font-size: 0.8em;
+	cursor: pointer;
+}
+.services-container ul li:hover{
+	color: #39C48E;
+}
 footer{
 	background: #ddd url(../images/footer.png) repeat top left;
 }
@@ -147,18 +197,35 @@ footer .redes .red{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.gray{
+	color: gray;
+}
+.link{
+	color:#39C48E;
+	text-decoration: underline;
+}
+.noticias{
+	line-height: 1.2em;
+}
 .icon-home3:before {
   content: "\e902";
+     color:#39C48E;
+  font-size: 1.5em;
 }
 .icon-file-text2:before {
   content: "\e926";
+    color:#39C48E;
+  font-size: 1.5em;
 }
 .icon-phone:before {
   content: "\e942";
+     color:#39C48E;
+  font-size: 1.5em;
 }
 .icon-user:before {
   content: "\e971";
+  color:#39C48E;
+  font-size: 1.5em;
 }
 .icon-search:before {
   content: "\e986";
