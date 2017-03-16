@@ -118,6 +118,27 @@ header .header-list .list-item:hover{
 .services-container ul li:hover{
 	color: #39C48E;
 }
+.services-container .columns{
+	display: inline-block;
+	width: 40%;
+	margin-left: 5%;
+	vertical-align: top;
+}
+.services-container .main p{
+	line-height: 1.4em;
+}
+.padding{
+	line-height: 1.2em;
+	padding-right: 4em;
+}
+.services-container button{
+		font-size: 0.8em;
+	background-color: #39C48E;
+	color: white;
+	border: 1px solid #39C48E;
+	border-radius: 5px;
+	padding: 8px 3px;
+}
 footer{
 	background: #ddd url(../images/footer.png) repeat top left;
 }
@@ -199,6 +220,9 @@ footer .redes .red{
 }
 .gray{
 	color: gray;
+}
+.green{
+	color: #39C48E;
 }
 .link{
 	color:#39C48E;
