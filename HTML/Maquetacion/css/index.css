@@ -1,0 +1,38 @@
+body{
+	background-color: #F2F3F4;
+	font-family: 'Comfortaa', cursive;
+}
+header{
+	background: #ddd url(../images/back.png) repeat top left;
+	min-height: 100px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+header .logo{
+	border-bottom: 2px dashed #39C48E;
+	color: #39C48E;
+	margin: 0;
+	padding: 0;
+	font-family: 'Lobster', cursive;
+	font-size: 2em;
+	position: absolute;
+	top: 1em;
+	left: 2em;
+}
+header .header-list{
+	text-align: left;
+	margin:2em 10% 2em 30%;
+}
+header .header-list .list-item{
+	border-radius: 5px;
+	color: white;
+	display: inline-block;
+	list-style-type: none;
+	padding: 1em 1em;
+}
+header .header-list .list-item:hover{
+	background-color: #39C48E;
+	cursor: pointer;
+}
