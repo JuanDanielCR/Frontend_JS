@@ -2,10 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Formulario con cookies</title>
   </head>
   <body>
-    <form class="" action="index.html" method="post">
+    <form class="" id="form" action="ejercicio.html" method="post">
     <table>
       <tr>
         <td rowspan="3" width="500px" height="200px">
@@ -13,41 +13,39 @@
               <legend>Datos Personales</legend>
               <table>
                 <tr height="65px">
-                  <td>Nombre: </td><td><input type="text" name="" value=""></td>
+                  <td>Nombre: </td><td><input type="text" id="txtNombre" name="" value=""></td>
                 </tr>
                 <tr height="50px">
-                  <td>Apellidos: </td><td><input type="text" name="" value=""></td>
+                  <td>Apellidos: </td><td><input type="text" id="txtApellidos" name="" value=""></td>
                 </tr>
                 <tr height="50px">
-                  <td>Dirección:</td><td><input type="text" size="20" name="" value=""></td>
+                  <td>Dirección:</td><td><input type="text" size="20" id="txtDirección" name="" value=""></td>
                 </tr>
                 <tr height="50px">
-                  <td>Código Postal: </td><td><input type="text" size="5" name="" value=""></td>
+                  <td>Código Postal: </td><td><input type="text" id="txtPostal" size="5" name="" value=""></td>
                 </tr>
                 <tr height="50px">
-                  <td>Ciudad: </td><td><input type="text" name="" value=""></td>
+                  <td>Ciudad: </td><td><input type="text" name="" id="txtCiudad" value=""></td>
                 </tr>
                 <tr height="50px">
-                  <td>Teléfono: </td><td><input type="text" name="" value=""></td>
+                  <td>Teléfono: </td><td><input type="text" id="txtTelefono" name="" value=""></td>
                 </tr>
                 <tr height="65px">
                   <td>Estado Civil: </td><td>
-                    <select class="" name="">
+                    <select class="" name="" id="selectEstado">
                       <option value="">Soltero/a</option>
                     </select></td>
                 </tr>
               </table>
               <td>
-                <form class="" action="index.html" method="post">
                   <fieldset>
                     <legend>Formación académica</legend>
                     <table>
-                    <tr height="50px"><td><input type="radio" name="grupo" value="1"></td><td>Secundaria</td></tr>
-                    <tr height="50px"><td><input type="radio" name="grupo" value="1"></td><td>Bachillerato</td></tr>
-                    <tr height="50px"><td><input type="radio" name="grupo" value="1"></td><td>Título Universitario</td></tr>
+                    <tr height="50px"><td><input type="radio" name="rdEscuela" value="1"></td><td>Secundaria</td></tr>
+                    <tr height="50px"><td><input type="radio" name="rdEscuela" value="1"></td><td>Bachillerato</td></tr>
+                    <tr height="50px"><td><input type="radio" name="rdEscuela" value="1"></td><td>Título Universitario</td></tr>
                    </table>
                   </fieldset>
-                </form>
               </td>
           </fieldset>
         </td>
@@ -58,9 +56,9 @@
           <fieldset>
               <legend>Áreas de interés</legend>
               <table>
-                <tr height="50px"><td><input type="checkbox" name="" value=""></td><td>Programación</td></tr>
-                <tr height="50px"><td><input type="checkbox" name="" value=""></td><td>Bases de Datos</td></tr>
-                <tr height="50px"><td><input type="checkbox" name="" value=""></td><td>Redes</td></tr>
+                <tr height="50px"><td><input type="checkbox" name="chkAreas" value=""></td><td>Programación</td></tr>
+                <tr height="50px"><td><input type="checkbox" name="chkAreas" value=""></td><td>Bases de Datos</td></tr>
+                <tr height="50px"><td><input type="checkbox" name="chkAreas" value=""></td><td>Redes</td></tr>
               </table>
           </fieldset>
         </td>
@@ -77,10 +75,10 @@
                   <input type="text" name="name" value="">
                 </td>
                 <td>
-                  <select class="" name="">
+                  <select class="" name="" id="selIdiomas">
                     <option value="option" selected="selected">Seleccionar</option>
-                    <option value="option">Opción 1</option>
-                    <option value="option">Opción 2</option>
+                    <option value="option">Español</option>
+                    <option value="option">Ingles</option>
                   </select>
                 </td>
               </tr>
@@ -160,12 +158,13 @@
       <tr>
         <td colspan="2">
           <center>
-            <input type="submit" name="name" value="Envíar">
+            <input type="submit" name="name" id="btnEnviar" value="Envíar">
             <input type="reset" name="name" value="Reestablecer">
           </center>
         </td>
       </tr>
     </table>
     </form>
+    <script type="text/javascript"  src="js/cookies.js"></script>
   </body>
 </html>
