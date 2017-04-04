@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Formulario con cookies</title>
+  </head>
+  <body>
+    <form class="" id="mainForm" name="mainForm" action="ejercicio.html" method="post">
+    <table>
+      <tr>
+        <td rowspan="3" width="500px" height="200px">
+          <fieldset>
+              <legend>Datos Personales</legend>
+              <table>
+                <tr height="65px">
+                  <td>Nombre: </td><td><input type="text" id="txtNombre"></td>
+                </tr>
+                <tr height="50px">
+                  <td>Apellidos: </td><td><input type="text" id="txtApellidos"></td>
+                </tr>
+                <tr height="50px">
+                  <td>Dirección:</td><td><input type="text" size="20" id="txtDirección"></td>
+                </tr>
+                <tr height="50px">
+                  <td>Código Postal: </td><td><input type="text" id="txtPostal" size="5"></td>
+                </tr>
+                <tr height="50px">
+                  <td>Ciudad: </td><td><input type="text" id="txtCiudad"></td>
+                </tr>
+                <tr height="50px">
+                  <td>Teléfono: </td><td><input type="text" id="txtTelefono"></td>
+                </tr>
+                <tr height="65px">
+                  <td>Estado Civil: </td><td>
+                    <select id="selEstadoCivil">
+                      <option value="Soltero">Soltero</option>
+                      <option value="Casado">Casado</option>
+                      <option value="Viudo">Viudo</option>
+                    </select></td>
+                </tr>
+              </table>
+              <td>
+                  <fieldset>
+                    <legend>Formación académica</legend>
+                    <table>
+                    <tr height="50px"><td><input type="radio" name="rdEscuela" value="Secundaria" checked></td><td>Secundaria</td></tr>
+                    <tr height="50px"><td><input type="radio" name="rdEscuela" value="Bachillerato"></td><td>Bachillerato</td></tr>
+                    <tr height="50px"><td><input type="radio" name="rdEscuela" value="Universidad"></td><td>Título Universitario</td></tr>
+                   </table>
+                  </fieldset>
+              </td>
+          </fieldset>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <fieldset>
+              <legend>Áreas de interés</legend>
+              <table>
+                <tr height="50px"><td><input id="areaProgra" type="checkbox" name="chkAreas" value="Programación"></td><td>Programación</td></tr>
+                <tr height="50px"><td><input id="areaBases" type="checkbox" name="chkAreas" value="Bases"></td><td>Bases de Datos</td></tr>
+                <tr height="50px"><td><input id="areaRedes" type="checkbox" name="chkAreas" value="Redes"></td><td>Redes</td></tr>
+              </table>
+          </fieldset>
+        </td>
+      </tr>
+      <tr height="38px"><td><br></td></tr>
+      <tr><td><br></td></tr>
+      <tr>
+        <td>
+          <fieldset>
+            <legend>Idiomas</legend>
+            <table>
+              <tr height="35">
+                <td>
+                  <input type="text" name="name"  id = "idioma1" value="">
+                </td>
+                <td>
+                  <select id="selIdiomas">
+                    <option value="Default" selected="selected">Seleccionar</option>
+                    <option value="Español">Español</option>
+                    <option value="Ingles">Ingles</option>
+                  </select>
+                </td>
+              </tr>
+              <tr height="35">
+                <td>
+                  <input type="text" name="name"  id = "idioma2" value="">
+                </td>
+                <td>
+                  <select id="selIdiomas2">
+                    <option value="Default" selected="selected">Seleccionar</option>
+                    <option value="Italiano">Italiano</option>
+                    <option value="Frances">Frances</option>
+                  </select>
+                </td>
+              </tr>
+              <tr height="35">
+                <td>
+                  <input type="text" name="name"  id = "idioma3" value="">
+                </td>
+                <td>
+                  <select id="selIdiomas3">
+                    <option value="option" selected="selected">Seleccionar</option>
+                    <option value="Chino">Chino</option>
+                    <option value="Solo">Solo</option>
+                  </select>
+                </td>
+              </tr>
+              <tr height="35">
+                <td>
+                  <input type="text" name="name" id = "idioma4"  value="">
+                </td>
+                <td>
+                  <select id="selIdiomas4">
+                    <option value="Default" selected="selected">Seleccionar</option>
+                    <option value="Rock">Rock</option>
+                    <option value="Pop">Pop</option>
+                  </select>
+                </td>
+              </tr>
+            </table>
+          </fieldset>
+        </td>
+        <td rowspan>
+            <fieldset>
+              <legend>Áreas de Interés</legend>
+                <select id="selArea" multiple="multiple" height="100%" size = 10>
+                  <option value="Bases Datos" selected="selected">Bases de Datos</option>
+                  <option value="Programacion">Programación</option>
+                  <option value="Redes">Redes</option>
+                  <option value="Animacion">Animación</option>
+                  <option value="Simulacion">Simulación</option>
+                  <option value="Cripto">Criptografía</option>
+                  <option value="Estructuras de Datos">Estructuras de datos</option>
+                </select>
+            </fieldset>
+        </td>
+      </tr>
+      <tr height="30px"><td><br></td></tr>
+      <tr>
+        <td colspan="3">
+            <fieldset>
+              <p>Comentarios</p>
+              <table>
+                <tr ><td width="30px"><br></td>
+                <td><textarea name="name" rows="2" cols="80" id="txtComentario"></textarea></td>
+                <td><br></td></tr>
+                <tr>
+                  <td>
+                    <br>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+        </td>
+      </tr>
+      <tr height="30px"><td><br></td><td></td></tr>
+      <tr>
+        <td colspan="2">
+          <center>
+            <input type="submit" name="name" id="btnEnviar" value="Envíar">
+            <input type="reset" name="name" value="Reestablecer">
+          </center>
+        </td>
+      </tr>
+    </table>
+    </form>
+    <script type="text/javascript"  src="js/cookies.js"></script>
+  </body>
+</html>
