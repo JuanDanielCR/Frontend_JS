@@ -1,0 +1,25 @@
+{
+  "name": "qeeeeee)",
+  "version": "1.0.0",
+  "dependencies": {
+    "serve": "^5.0.0"
+  },
+  "description": "jkjkj",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "yo mero",
+  "license": "ISC",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "Frontend_JS"
+  },
+  "scripts":{
+    "start":"serve /public"
+  },
+  "keywords": [
+    "dasda"
+  ]
+}
