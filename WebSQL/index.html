@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Grid Item Animation Layout - Demo 1</title>
+		<link rel="stylesheet" type="text/css" href="css/normalize.css"/>
+		<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.3.0/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style1.css"/>
+		<script src="js/modernizr.custom.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<button id="menu-toggle" class="menu-toggle"><span>Menu</span></button>
+			<!--MENU LATERAL-->
+			<div id="theSidebar" class="sidebar">
+				<button class="close-button fa fa-fw fa-close"></button>
+				<h1><span>Smart<span> Gallery</h1>
+				<nav class="codrops-demos">
+					<a href="#" id="btnFotos">Fotos</a> / 
+					<a href="#" id="btnCarpetas">Carpetas</a>
+				</nav>
+				<div id="activeMenu">
+					<!--Fill with JS-->
+				</div>
+			</div>
+			<!--TABLERO CENTRAL-->
+			<div id="theGrid" class="main">
+				<!--CARPETAS-->
+				<section class="grid" id="carpetasContainer">
+					<!--Filled by JS-->
+					<footer class="page-meta">
+						<a href="#"><span>Cargar más</span></a>
+					</footer>
+				</section>
+				<!--FOTOS-->
+				<section class="content" >
+					<div class="scroll-wrap" id="fotosContainer">
+						<!--Filled by JS-->
+					</div>
+				</section>
+			</div>
+		</div><!-- /container -->
+
+		<script src="js/classie.js"></script>
+		<script src="js/index.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>
