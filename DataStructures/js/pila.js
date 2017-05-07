@@ -11,34 +11,64 @@ function init(){
 	var btnPush = document.getElementById("btnPush");
 	var btnPop  = document.getElementById("btnPop");
 	var txtNodo = document.getElementById("txtNodo");
+	var spanNodo = document.getElementById("nodoValue");
+	var nodoElem = document.getElementById("nodoBase");
+	var mensaje = document.getElementById("msjContainer");
+	var stackContainer = document.getElementById("stackDiv");
 	//Crear Nodo
 	btnNodo.addEventListener("click",function(){
+		nodoBase.classList.remove("desaparecer");
 		var contenido = txtNodo.value;
-		nodo = new Nodo(contenido);
-		console.log(nodo)
+		if(contenido == ""){
+			mensaje.innerHTML="Ingresa el contenido del nodo";
+			//alert("Ingresa el valor");
+			nodoBase.classList.add("desaparecer");
+		}else{
+			nodo = new Nodo(contenido);
+			spanNodo.innerHTML = contenido;
+			mensaje.innerHTML = "Nodo Creado"
+		}
 	},false);
 	//push 
 	btnPush.addEventListener("click",function(){
+		nodoBase.classList.remove("desaparecer");
 		if(nodo != null){
 			stack.push(nodo);
-			console.log("Pushing: "+nodo.value);
+		//actualizando la vista del nodo base
+			spanNodo.innerHTML = "-";
+			txtNodo.value = ""
+		//actualizando el stack
+			var innerStack = stackContainer.innerHTML;
+			innerStack = nodoVista.replace("{valor}",nodo.value) + innerStack;
+			stackContainer.innerHTML = innerStack;
+		//devolviendo nodo a null
 			nodo = null;
 		}else{
-			alert("Primero crea un nodo");
+			//alert("Crea un nodo");
+			mensaje.innerHTML = "Primero crea un Nodo"
+			nodoBase.classList.add("desaparecer");
 		}
 	},false);
 	//pop
 	btnPop.addEventListener("click",function(){
-		console.log("Sz: "+stack.getSize());
 		var value = stack.pop();
-		console.log("Salio: "+value)
-		console.log("Sz: "+stack.getSize());
+		if(value == -1){
+			mensaje.innerHTML = "La pila esta vacía";
+		}else{
+			mensaje.innerHTML = "Pop a "+value;
+			var hijo = stackContainer.firstChild;
+			hijo.classList.add("pop");
+			setTimeout(function(){
+        		stackContainer.removeChild(hijo);
+        	},1000);
+		}
 	},false);
 	//Creando una pila
 	stack =  new Stack(0);
 	
 	//VISTA
-	
+	var nodoVista = "<div class='nodoStack'><div class='content'><h4>Nodo</h4><p>{valor}<br><p></div><div class='arrow'>-</div></div>";
+
 }
 
 //Clase Pila
@@ -66,7 +96,6 @@ Stack.prototype.pop = function() {
 		this.size--;
 		return nodo.value;
 	}else{
-		alert("Pila vacia");
 		return -1;
 	}
 };

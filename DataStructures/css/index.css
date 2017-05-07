@@ -37,15 +37,15 @@ header li a{
 }
 
 /*SECTIONS*/
-section{
+.menuContainer{
 	text-align: justify;
 }
-section:after {
+.menuContainer:after {
     content: "";
     display: inline-block;
     width: 100%;
 }
-section article{
+.menuContainer article{
 	background-color:  #eee;
 	border: 1px solid  #e1e0e0;
 	border-radius: 6px;
@@ -58,16 +58,16 @@ section article{
 	text-align: center;
 	width: 25%;
 }
-section article h2{
+.menuContainer article h2{
 	letter-spacing: 2px;
 	font-weight: lighter;
 	text-transform: uppercase;
 }
-section article a{
+.menuContainer article a{
 	color: #aa0000;
 	text-decoration: none;
 }
-section article img{
+.menuContainer article img{
 	max-height: 200px;
 	max-width: 200px;
 }
