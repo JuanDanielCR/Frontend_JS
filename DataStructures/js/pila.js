@@ -41,6 +41,7 @@ function init(){
 			var innerStack = stackContainer.innerHTML;
 			innerStack = nodoVista.replace("{valor}",nodo.value) + innerStack;
 			stackContainer.innerHTML = innerStack;
+			mensaje.innerHTML = "Nodo Agregado"
 		//devolviendo nodo a null
 			nodo = null;
 		}else{
@@ -58,9 +59,12 @@ function init(){
 			mensaje.innerHTML = "Pop a "+value;
 			var hijo = stackContainer.firstChild;
 			hijo.classList.add("pop");
+			hijo.classList.add("izquierda");
 			setTimeout(function(){
         		stackContainer.removeChild(hijo);
+        		stackContainer.classList.add("fuera");
         	},1000);
+        	stackContainer.classList.remove("fuera");
 		}
 	},false);
 	//Creando una pila
@@ -82,11 +86,14 @@ Stack.prototype.isEmpty = function() {
 };
 //push
 Stack.prototype.push = function(nodo) {
-	var old = this.first;
-	this.first = nodo;
-	nodo.next = old;
-	this.size++;
-
+	if(this.isEmpty() == true){
+		this.first = nodo;
+	}else{
+		var old = this.first;
+		this.first = nodo;
+		nodo.next = old;
+		this.size++;
+	}
 };
 //pop
 Stack.prototype.pop = function() {
