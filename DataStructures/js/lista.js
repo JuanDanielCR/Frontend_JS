@@ -112,16 +112,15 @@ function init(){
 			txtNodo.value = ""
 		//actualizando el stack
 			var nodos = stackContainer.childNodes;
+			var aux = [0];
 			console.log(nodos);
-			for (var i =0; i<nodos.length; i++) {
-				if (nodos[i].type== div.nodoStack) {
-					c= nodos[i].type;
-					console.log("for i:"+i)
-					
-				}
-			}
-			nodos.childNodes.splice(pos,0,nodoVista);
+
+			var elem = document.createElement('div');
+			elem.classList.add("nodoStack");
+   			elem.innerHTML =nodito.replace("{valor}",nodo.value);
+			stackContainer.insertBefore(elem, stackContainer.children[pos]);
 			mensaje.innerHTML = "Nodo Agregado"
+			console.log(nodos);
 		//devolviendo nodo a null
 			nodo = null;
 			stackContainer.classList.remove("derecha");
@@ -154,7 +153,7 @@ function init(){
         	},1000);
         	stackContainer.classList.remove("fuera");
         	imagen.innerHTML = "";
-			imagen.innerHTML = "<img src='../images/ELp.png' class='big'>"
+			imagen.innerHTML = "<img src='../images/Elp.png' class='big'>"
 		}
 	},false);
 	//---------------------------------------------------------------------------
@@ -191,15 +190,14 @@ DelP.addEventListener("click",function(){
 			imagen.innerHTML = "<img src='../images/error.png'>"
 		}
 		else{
-			nodosDiv.splice(pos,1);
-			console.log(nodosDiv);
-			var hijo = stackContainer.firstChild;
+			var hijo = stackContainer.children[pos];
 			hijo.classList.add("pop");
 			hijo.classList.add("izquierda");
 			setTimeout(function(){
         		stackContainer.removeChild(hijo);
         		stackContainer.classList.add("fuera");
         	},1000);
+        	stackContainer.removeChild(hijo);
         	stackContainer.classList.remove("fuera");
         	imagen.innerHTML = "";
 			imagen.innerHTML = "<img src='../images/APos.png' class='big'>"
@@ -246,7 +244,8 @@ DelP.addEventListener("click",function(){
 	//------------------------------------------------------------------------
 	//VISTA
 	var nodoVista = "<div class='nodoStack'><div class='content'><h4>Nodo</h4><p>{valor}<br><p></div><div class='arrow'>-</div></div>";
-
+	var nodito = "<div class='content'><h4>Nodo</h4><p>{valor}<br><p></div><div class='arrow'>-</div>";
+	
 }
 //Clase Nodo
 function Nodo(val){
