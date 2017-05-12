@@ -16,10 +16,10 @@
 	width: 30%;
 }
 .dataContainer .nodoContainer .nodoShow{
-	background-color:  #ff255c;
-	border: 1px solid  #d30035;
+	background-color:  #DB15A3;
+	border: 1px solid  #C71394;
 	border-radius: 6px;
-	box-shadow: 2px 2px #d30035;
+	box-shadow: 2px 2px #C71394;
 	color: white;
 	font-family: 'Oswald', sans-serif;
 	height: 25%;
@@ -74,7 +74,7 @@
   }
 }
 .dataContainer .nodoContainer .nodoShow h3{
-	border-bottom: 1px solid  #d30035;
+	border-bottom: 1px solid  #C71394;
 	border-top-left-radius: 6px;
 	border-top-right-radius: 6px;
 	font-weight: lighter;
@@ -86,7 +86,7 @@
 	padding-left: 5px;
 }
 .dataContainer .nodoContainer .nodoMenu{
-	border-left: 3px solid  #ff255c;
+	border-left: 3px solid  #FF880B;
 	margin: 2em 1em;
 	padding-left: 1em;
 }
@@ -112,7 +112,7 @@
 	font-weight: lighter;
 }
 
-.dataContainer .nodoContainer .nodoMenu #btnPush{
+.dataContainer .nodoContainer .nodoMenu #btnFormarse{
 	background-color:  #ff9434;
 	border: 1px solid #ff7900;
 	border-radius: 6px;
@@ -122,7 +122,7 @@
 	font-weight: lighter;
 }
 
-.dataContainer .nodoContainer .nodoMenu #btnPop{
+.dataContainer .nodoContainer .nodoMenu #btnDesformarse{
 	background-color:  #e80404;
 	border: 1px solid #af0000;
 	border-radius: 6px;
@@ -131,25 +131,25 @@
 	font-family: 'Oswald', sans-serif;
 	font-weight: lighter;
 }
-/*---------STACK-------------*/
-.dataContainer .stackContainer{
+/*---------Cola-------------*/
+.dataContainer .queueContainer{
 	border-left: 1px solid gray;
 	display: inline-block;
 	padding-top: 1em;
 	vertical-align:top;
 	width: 60%;
 }
-.dataContainer .stackContainer #stackDiv{
+.dataContainer .queueContainer #queueDiv{
 	min-height: 500px;
 	width: 100%;
 }
-.dataContainer .stackContainer #stackDiv .nodoStack{
-	background-color:  #ff255c;
-	border: 1px solid  #d30035;
-	border-bottom: 1em solid #d30035;
+.dataContainer .queueContainer #queueDiv .nodoQueue{
+	background-color:  #DB15A3;
+	border: 1px solid  #C71394;
+	border-right: 1em solid #C71394;
 	border-top-left-radius: 6px;
-	border-top-right-radius: 6px;
-
+	border-bottom-left-radius: 6px;
+	display: inline-block;
 	color: white;
 	font-family: 'Oswald', sans-serif;
 	font-weight: lighter;
@@ -161,20 +161,19 @@
 	width: 15%;
     transition:1s linear all;
 }
-.dataContainer .stackContainer #stackDiv .nodoStack .content{
+.dataContainer .queueContainer #queueDiv .nodoQueue .content{
 	margin-bottom: 8px;
 }
-.dataContainer .stackContainer #stackDiv .nodoStack .arrow{
-    position: absolute;
-    background-color: #d30035;
-    color: #d30035;
-    height: 50px;
-    margin-left: 50%;
-    margin-top: 0%;
+.dataContainer .queueContainer #queueDiv .nodoQueue .arrow{
+	position: absolute;
+    background-color: #C71394;
+    color: #C71394;
+    margin-left: 100%;
+    margin-top: -35%;
     font-size: 8px;
-    width: 8px;
+    width: 50px;
 }
-.dataContainer .stackContainer #stackDiv .nodoStack h4{
+.dataContainer .queueContainer #queueDiv .nodoQueue h4{
 	font-family: 'Oswald', sans-serif;
 	font-size: 0.7em;
 	font-weight: lighter;
@@ -190,7 +189,7 @@
 	position: absolute;
 	width: 10%;
 }
-.pop{
+.desformarse{
 	opacity: 0;
 }
 .izquierda{
