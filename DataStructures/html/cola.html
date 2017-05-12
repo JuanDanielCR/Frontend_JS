@@ -3,6 +3,7 @@
 	<title>Estructuras de Datos</title>
 	<link rel="stylesheet" type="text/css" href="../css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="../css/index.css">
+	<link rel="stylesheet" type="text/css" href="../css/cola.css">
 	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 </head>
 <body>
@@ -14,6 +15,29 @@
 			<li><a href="lista.html">Lista</a></li>
 		</ul>
 	</header>
+	<section class="dataContainer">
+		<h1 class="titulo">Cola</h1>
+		<article class="nodoContainer">
+			<div class="nodoShow" id="nodoBase">
+				<h3>Nodo</h3>
+				<p>Valor: <span id="nodoValue">-</span><p>
+			</div>
+			<div class="nodoMenu">
+				<p>Valor: <input type="text" placeholder="Contenido del nodo" id="txtNodo" required><br></p>
+				<button id="btnNodo">Crear Nodo</button>
+				<button id="btnFormarse">Formarse</button>
+				<button id="btnDesformarse">Desformarse</button>
+				<p>Mensaje: <span id="msjContainer"></span></p>
+			</div>
+			<div class="imageContainer" id="imageContainer">
+				<!--JS-->
+				<img src="../images/imagenInicial.png">
+			</div>
+		</article>
+		<article class="queueContainer"><div id="queueDiv"></div>
+		</article>
+	</section>
+	<script type="text/javascript" src="../js/cola.js"></script>
 
 </body>
 </html>

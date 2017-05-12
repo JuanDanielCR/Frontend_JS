@@ -5,110 +5,115 @@ window.onload = function() {
 function init(){
 	//Variables
 	var nodo =  null;
-	var stack;
+	var queue;
 	//Elementos
 	var btnNodo = document.getElementById("btnNodo");
-	var btnPush = document.getElementById("btnPush");
-	var btnPop  = document.getElementById("btnPop");
+	var btnFormarse = document.getElementById("btnFormarse");
+	var btnDesformarse  = document.getElementById("btnDesformarse");
 	var txtNodo = document.getElementById("txtNodo");
 	var spanNodo = document.getElementById("nodoValue");
 	var nodoElem = document.getElementById("nodoBase");
 	var mensaje = document.getElementById("msjContainer");
+	var queueContainer = document.getElementById("queueDiv");
 	var imagen = document.getElementById("imageContainer");
-	var stackContainer = document.getElementById("stackDiv");
+
 	//Crear Nodo
 	btnNodo.addEventListener("click",function(){
 		nodoBase.classList.remove("desaparecer");
-		nodoBase.classList.remove("acepta");
 		var contenido = txtNodo.value;
 		if(contenido == ""){
 			mensaje.innerHTML="Ingresa el contenido del nodo";
 			//alert("Ingresa el valor");
 			nodoBase.classList.add("desaparecer");
+
 			imagen.innerHTML = "<img src='../images/error.png'>"
 		}else{
 			nodo = new Nodo(contenido);
 			spanNodo.innerHTML = contenido;
 			mensaje.innerHTML = "Nodo Creado"
+			//imagen del codigo en C
 			nodoBase.classList.add("acepta");
 			imagen.innerHTML = "";
-			imagen.innerHTML = "<img src='../images/crear_nodo.png' class='big'>"
+			imagen.innerHTML = "<img src='../images/crear_nodoQ.png' class='big'>"
 		}
 	},false);
-	//push 
-	btnPush.addEventListener("click",function(){
+	//formarse
+	btnFormarse.addEventListener("click",function(){
 		nodoBase.classList.remove("desaparecer");
 		if(nodo != null){
-			stack.push(nodo);
+			queue.formarse(nodo);
 		//actualizando la vista del nodo base
 			spanNodo.innerHTML = "-";
 			txtNodo.value = ""
-		//actualizando el stack
-        	var innerStack = stackContainer.innerHTML;
-			innerStack = nodoVista.replace("{valor}",nodo.value) + innerStack;
-			stackContainer.innerHTML = innerStack;
+		//actualizando la cola
+			queueContainer.innerHTML+=nodoVista.replace("{valor}",nodo.value);
 			mensaje.innerHTML = "Nodo Agregado"
 		//devolviendo nodo a null
 			nodo = null;
-			stackContainer.classList.remove("derecha");
+			//Imagen 
 			imagen.innerHTML = "";
-			imagen.innerHTML = "<img src='../images/push.png' class='big'>"
+			imagen.innerHTML = "<img src='../images/formarse.png' class='big'>"
 		}else{
 			//alert("Crea un nodo");
 			mensaje.innerHTML = "Primero crea un Nodo"
+			nodoBase.classList.add("desaparecer");
 			imagen.innerHTML = "<img src='../images/error.png'>"
 		}
 	},false);
-	//pop
-	btnPop.addEventListener("click",function(){
-		var value = stack.pop();
+	//desformarse
+	btnDesformarse.addEventListener("click",function(){
+		var value = queue.desformarse();
 		if(value == -1){
 			mensaje.innerHTML = "La pila esta vacía";
-			imagen.innerHTML = "<img src='../images/error.png'>"
 		}else{
-			mensaje.innerHTML = "Pop a "+value;
-			var hijo = stackContainer.firstChild;
-			hijo.classList.add("pop");
+			mensaje.innerHTML = "Se desformo un "+value;
+			var hijo = queueContainer.firstChild;
+			hijo.classList.add("desformarse");
 			hijo.classList.add("izquierda");
 			setTimeout(function(){
-        		stackContainer.removeChild(hijo);
-        		stackContainer.classList.add("fuera");
+        		queueContainer.removeChild(hijo);
+        		queueContainer.classList.add("fuera");
         	},1000);
-        	stackContainer.classList.remove("fuera");
+        	queueContainer.classList.remove("fuera");
+
+        	//Imagen del codigo
         	imagen.innerHTML = "";
-			imagen.innerHTML = "<img src='../images/pop.png' class='big'>"
+			imagen.innerHTML = "<img src='../images/desformarse.png' class='big'>"
 		}
 	},false);
 	//Creando una pila
-	stack =  new Stack(0);
+	queue =  new Queue(0);
 	
 	//VISTA
-	var nodoVista = "<div class='nodoStack'><div class='content'><h4>Nodo</h4><p>{valor}<br><p></div><div class='arrow'>-</div></div>";
+	var nodoVista = "<div class='nodoQueue'><div class='content'><h4>Nodo</h4><p>{valor}<br><p></div><div class='arrow'>-</div></div>";
 
 }
 
-//Clase Pila
-function Stack(sz){
-	this.size = sz;
+//Clase Cola
+function Queue(siz){
+	this.size = siz;
 	this.first = null;
+	this.ultimo = null;
 }
 //isEmpty
-Stack.prototype.isEmpty = function() {
+Queue.prototype.isEmpty = function() {
 	return this.first == null;
 };
-//push
-Stack.prototype.push = function(nodo) {
-	if(this.isEmpty() == true){
+//Formarse
+Queue.prototype.formarse = function(nodo) {
+	if(this.size == 0){
 		this.first = nodo;
+		this.ultimo =nodo;
+		this.size++;
 	}else{
-		var old = this.first;
-		this.first = nodo;
-		nodo.next = old;
+		var last = this.ultimo;
+		last.next = nodo;
+		this.ultimo = nodo;
 		this.size++;
 	}
 };
-//pop
-Stack.prototype.pop = function() {
+//Desformarse
+Queue.prototype.desformarse = function() {
 	if(this.isEmpty() != true){
 		var nodo = this.first;
 		this.first = nodo.next;
@@ -119,11 +124,11 @@ Stack.prototype.pop = function() {
 	}
 };
 //size
-Stack.prototype.getSize = function(first_argument) {
+Queue.prototype.getSize = function(first_argument) {
 	return this.size;
 };
 //Clase Nodo
-function Nodo(val){
-	this.value = val;
+function Nodo(valor){
+	this.value = valor;
 	this.next = null;
 }
