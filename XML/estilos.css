@@ -1,0 +1,39 @@
+menu,seccion,nombreSeccion,platillo,ingredientes,ingrediente,pasos,accion{
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+nombreSeccion{
+	color: red;
+	font-family: Brush Script Std, Brush Script MT;
+	font-size: 1.2em;
+	font-style: italic;
+	font-weight: bold;
+	padding: 1em 0; 
+}
+
+platillo:before{
+	content: attr(nombre);
+	color: #ff49ff;
+	display: block;
+	font-size: 	1em;
+	text-align: center;
+}
+ingrediente{
+	color: #3cff51;
+	padding-left: 10px;
+}
+ingrediente:after{
+	content: attr(cantidad);
+	color: black;
+	display: inline-block;
+	padding-left: 2em;
+}
+accion{
+	color: blue;
+}
+accion:before{
+	color:blue;
+	content: attr(id);
+	display: inline-block;
+}

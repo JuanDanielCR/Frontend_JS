@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet type="text/css" href="estilos.css"?>
+<!DOCTYPE menu SYSTEM "holaDTD.dtd">
+<menu>
+	<seccion>
+		<nombreSeccion>Apetitosos Pasteles</nombreSeccion>
+		<platillo nombre="Pastel de Queso">
+			<ingredientes>
+				<ingrediente cantidad="1/2 kg">Pan cortado en rebanadas</ingrediente>
+				<ingrediente cantidad="6">Huevos</ingrediente>
+				<ingrediente cantidad="6 tazas">Leche</ingrediente>
+				<ingrediente cantidad="2 tazas">Queso rallado ricota</ingrediente>
+				<ingrediente cantidad="1 cucharada">Cebolla picada</ingrediente>
+				<ingrediente cantidad="cantidad necesaria">Sal</ingrediente>
+				<ingrediente cantidad="2 cucharaditas">Pimienta</ingrediente>
+			</ingredientes>
+			<pasos>
+				<accion id="1.">En una asadera enmantecada se coloca, en el fondo, una camada de rebanadas de pan, se espolvorean con abundante queso rallado y se vuelve a poner otra camada de rebanadas de pan que se cubre con el queso restante.</accion>
+				<accion id="2.">Aparte de baten los huevos, seles agrega leche, la sal y la cebolla y se vierte este líquido sobre las rebanadas de pan y queso. Se cocina en horno moderado durante una hora ´más o menos.</accion>
+			</pasos>
+		</platillo>
+	</seccion>
+	<seccion>
+		<nombreSeccion>Tortillas para todos los gustos</nombreSeccion>
+		<platillo nombre="Tortilla al horno">
+			<ingredientes>
+				<ingrediente cantidad="3">Huevos</ingrediente>
+				<ingrediente cantidad="4 cdas">Queso rallado</ingrediente>
+				<ingrediente cantidad="1 taza">Leche</ingrediente>
+				<ingrediente cantidad="6 tajadas">Queso fresco</ingrediente>
+				<ingrediente cantidad="cantidad necesaria">Sal y condimento</ingrediente>
+			</ingredientes>
+			<pasos>
+				<accion id="1.">Se baten muy bien por separado las claras y las yemas. En estas últimas se incorporan la sal y se contínua batiendo hasta se espesen. Se agregan las 4 cucharads de queso rallado, el condimento, la leche y cuando todo está bien unido, se añaden las claras batidas a nieve. En una fuente enmantecada se coloca la preparación y se distribuye e ella las 6 tajadas de fresco, Se pone en el horno a temperatura suave.</accion>
+			</pasos>
+		</platillo>
+		<platillo nombre="Tortilla de arroz">
+			<ingredientes>
+				<ingrediente cantidad="1/2 taza">Arroz cocido</ingrediente>
+				<ingrediente cantidad="1">Cebolla chica bien picada</ingrediente>
+				<ingrediente cantidad="1">Diente de ajo bien picado</ingrediente>
+				<ingrediente cantidad="3">Huevos</ingrediente>
+				<ingrediente cantidad="2 cucharadas">Perejil picado</ingrediente>
+				<ingrediente cantidad="1 cucharada">Manteca o mantequilla</ingrediente>
+				<ingrediente cantidad="cantidad necesaria">Sal y condimento</ingrediente>
+			</ingredientes>
+			<pasos>
+				<accion id="1.">Se baten muy bien los tres huevos y se les añade arroz. En la manteca derretida, se doran ligeramente la cebolla y el ajo picados; cuando estan listos se les agrega lamezcla de arroz con huevos y por último la sal y el perejil. Con un tendero se mezclan bien todos los ingredientes y se deja que la torilla se dore por un lado: luego se da vuelta para que se dore por el otro lado.</accion>
+			</pasos>
+		</platillo>
+	</seccion>
+	<seccion>
+		<nombreSeccion>Postres para adornar su mesa</nombreSeccion>
+		<platillo nombre="Pastel de Queso">
+			<ingredientes>
+				<ingrediente cantidad="0">No se alcanza a ver</ingrediente>
+			</ingredientes>
+			<pasos>
+				<accion id="1.">No se ve</accion>
+			</pasos>
+		</platillo>
+</seccion>
+</menu>

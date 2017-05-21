@@ -1,0 +1,23 @@
+<!--Puedo tener una o más secciones, mínimo una por el +, podría tener 0 si uso * -->
+<!ELEMENT menu (seccion+)>
+<!--menu no tiene atributos, no ponemos ATTLIST -->
+
+<!--Tendre obligatoriamente UN nombreSeccion -->
+<!ELEMENT seccion (nombreSeccion,platillo+)>
+
+<!--El contenido es texto -->
+<!ELEMENT nombreSeccion (#PCDATA)>
+
+<!ELEMENT platillo (ingredientes,pasos)>
+<!-- ATTLIST nombre_tag nombre_attr tipo_attr valor_predeterminado -->
+<!ATTLIST platillo nombre CDATA #REQUIRED>
+
+<!ELEMENT ingredientes (ingrediente+)>
+
+<!ELEMENT ingrediente (#PCDATA)>
+<!ATTLIST ingrediente cantidad CDATA #REQUIRED>
+
+<!ELEMENT pasos (accion+)>
+
+<!ELEMENT accion (#PCDATA)>
+<!ATTLIST accion id CDATA #REQUIRED>

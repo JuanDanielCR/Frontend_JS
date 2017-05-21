@@ -243,3 +243,14 @@ article img{
 	height: 100%;
 	width:100%;
 }
+.abajo{
+	animation: down 1s;
+}
+@keyframes down {
+      0% {
+    	transform:  translateY(0px);    
+	  }
+	  100% {
+    	transform: translateY(80px);    
+  	}
+}
