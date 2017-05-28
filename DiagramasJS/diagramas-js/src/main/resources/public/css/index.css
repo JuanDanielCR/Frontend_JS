@@ -1,0 +1,19 @@
+#menu{
+	padding-top:0.5em;
+	padding-bottom: 0.5em;
+	margin-bottom: 0;
+}
+.goDiagram{
+	display: inline-block;
+}
+.palette{
+	height: 500px;
+	float: left;
+	width: 20%;
+}
+.diagram{
+	background: url("fondo.png");
+	float: right;
+	height: 500px;
+	width: 80%;
+}

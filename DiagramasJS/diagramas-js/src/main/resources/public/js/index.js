@@ -3,7 +3,7 @@ jQuery(document).ready(function(){
 	/*Botones*/
 	var btnGuardar = jQuery("#btnGuardar");
 	var btnCodigo = jQuery("#btnCodigo");
-	
+	var btnCargar = jQuery("#btnCargar");
 	/* Usando $ como contexto: go.GraphObject.make */
 	var $ = go.GraphObject.make;
 	
@@ -74,13 +74,18 @@ jQuery(document).ready(function(){
 		$(go.Node, "Spot", nodeStyle(),
 		// the main object is a Panel that surrounds a TextBlock with a rectangular Shape
 		$(go.Panel, "Auto",
-		$(go.Shape, "Terminator", { fill: "#9ffea0", stroke:"#9ffea0" }, new go.Binding("figure", "figure")),
-		$(go.TextBlock,{ font: "bold 11pt Helvetica, Arial, sans-serif", stroke: "whitesmoke", margin: 8,  maxSize: new go.Size(160, NaN), wrap: go.TextBlock.WrapFit, editable: true },
-		new go.Binding("text").makeTwoWay())),
-		// four named ports, one on each side:
-		makePort("T", go.Spot.Top, false, true), //Habilitado para salir pero no para llegar
-		makePort("L", go.Spot.Left, true, true), //Habilitado para salir y llegar
-		makePort("R", go.Spot.Right, true, true),
+		$(go.Shape, "Terminator", { fill: "#9ffea0", stroke:"#9ffea0" }),
+		$(go.TextBlock,{ 
+			font: "bold 11pt Helvetica, Arial, sans-serif", 
+			stroke: "whitesmoke", 
+			margin: 8,  
+			maxSize: new go.Size(160, NaN), 
+			wrap: go.TextBlock.WrapFit, 
+			editable: true 
+			},
+		new go.Binding("text"))),
+		makePort("L", go.Spot.Left, true, false), 
+		makePort("R", go.Spot.Right, true, false),
 		makePort("B", go.Spot.Bottom, true, false)
 		)
 	);
@@ -89,94 +94,66 @@ jQuery(document).ready(function(){
 			$(go.Node, "Spot", nodeStyle(),
 			// the main object is a Panel that surrounds a TextBlock with a rectangular Shape
 			$(go.Panel, "Auto",
-			$(go.Shape, "Terminator", { fill: "#A37A74", stroke:"#A37A74" }, new go.Binding("figure", "figure")),
-			$(go.TextBlock,{ font: "bold 11pt Helvetica, Arial, sans-serif", stroke: "whitesmoke", margin: 8,  maxSize: new go.Size(160, NaN), wrap: go.TextBlock.WrapFit, editable: true },
+			$(go.Shape, "Terminator", { fill: "#A37A74", stroke:"#A37A74" }),
+			$(go.TextBlock,{
+				font: "bold 11pt Helvetica, Arial, sans-serif", 
+				stroke: "whitesmoke",
+				margin: 8,  
+				maxSize: new go.Size(160, NaN), 
+				wrap: go.TextBlock.WrapFit, 
+				editable: true 
+			},			
 			new go.Binding("text").makeTwoWay())),
-			// four named ports, one on each side:
-			makePort("T", go.Spot.Top, false, true), //Habilitado solo para llegada
+			makePort("T", go.Spot.Top, false, true), 
 			makePort("L", go.Spot.Left, false, true),
 			makePort("R", go.Spot.Right, false, true)
 		)
 	);
 
 	//Nodo de Sentencia Simple
-	diagrama.nodeTemplateMap.add("Simple",
+	diagrama.nodeTemplateMap.add("",
 			$(go.Node, "Spot", nodeStyle(),
 			// the main object is a Panel that surrounds a TextBlock with a rectangular Shape
 			$(go.Panel, "Auto",
-			$(go.Shape, "Rectangle", { fill: "#E0C879", stroke:"#E0C879" }, new go.Binding("figure", "figure")),
-			$(go.TextBlock,{ font: "bold 11pt Helvetica, Arial, sans-serif", stroke:"whitesmoke", margin: 8,  maxSize: new go.Size(160, NaN), wrap: go.TextBlock.WrapFit, editable: true },
-			new go.Binding("text").makeTwoWay())),
-			// four named ports, one on each side:
-			makePort("T", go.Spot.Top, true, true), 
+			$(go.Shape, "Rectangle", { fill: "#E0C879", stroke:"brown" },new go.Binding("figure", "figure")),
+			$(go.TextBlock,{ 
+				font: "bold 11pt Helvetica, Arial, sans-serif", 
+				stroke:"whitesmoke", 
+				margin: 8,  
+				maxSize: new go.Size(160, NaN), 
+				wrap: go.TextBlock.WrapFit, 
+				editable: true 
+			},
+			new go.Binding("text"))),
+			makePort("T", go.Spot.Top, false, true), 
 			makePort("L", go.Spot.Left, true, true),
 			makePort("R", go.Spot.Right, true, true),
-			makePort("B", go.Spot.Bottom, true, true)
+			makePort("B", go.Spot.Bottom, true, false)
 		)
 	);
 	
-	//Nodo de Declaración de variable
-	diagrama.nodeTemplateMap.add("Variable",
-			$(go.Node, "Spot", nodeStyle(),
-			// the main object is a Panel that surrounds a TextBlock with a rectangular Shape
-			$(go.Panel, "Auto",
-			$(go.Shape, "CreateRequest", { fill: "#7180AC", stroke:"#2B4570" }, new go.Binding("figure", "figure")),
-			$(go.TextBlock,{ font: "bold 11pt Helvetica, Arial, sans-serif", stroke: "whitesmoke", margin: 8,  maxSize: new go.Size(160, NaN), wrap: go.TextBlock.WrapFit, editable: true },
-			new go.Binding("text").makeTwoWay())),
-			// four named ports, one on each side:
-			makePort("T", go.Spot.Top, true, true), 
-			makePort("L", go.Spot.Left, true, true),
-			makePort("R", go.Spot.Right, true, true),
-			makePort("B", go.Spot.Bottom, true, true)
-		)
-	);
+	//Nodo de Declaración de variable - CreateRequest
+	//Nodo de Entrada de Datos - Document
+	//Nodo de Salida de Datos - Card
+	//Nodo Condicional - Diamond
 	
-	//Nodo de Entrada de Datos
-	diagrama.nodeTemplateMap.add("Entrada",
-			$(go.Node, "Spot", nodeStyle(),
-			// the main object is a Panel that surrounds a TextBlock with a rectangular Shape
-			$(go.Panel, "Auto",
-			$(go.Shape, "Document", { fill: "#E49273", stroke:"#E49273" }, new go.Binding("figure", "figure")),
-			$(go.TextBlock,{ font: "bold 11pt Helvetica, Arial, sans-serif", stroke: "whitesmoke", margin: 8,  maxSize: new go.Size(160, NaN), wrap: go.TextBlock.WrapFit, editable: true },
-			new go.Binding("text").makeTwoWay())),
-			// four named ports, one on each side:
-			makePort("T", go.Spot.Top, true, true), 
-			makePort("L", go.Spot.Left, true, true),
-			makePort("R", go.Spot.Right, true, true),
-			makePort("B", go.Spot.Bottom, true, true)
-		)
-	);
-	//Nodo de Salida de Datos
-	diagrama.nodeTemplateMap.add("Salida",
-			$(go.Node, "Spot", nodeStyle(),
-			// the main object is a Panel that surrounds a TextBlock with a rectangular Shape
-			$(go.Panel, "Auto",
-			$(go.Shape, "Card", { fill: "#5FB49C", stroke:"#5FB49C" }, new go.Binding("figure", "figure")),
-			$(go.TextBlock,{ font: "bold 11pt Helvetica, Arial, sans-serif", stroke: "whitesmoke", margin: 8,  maxSize: new go.Size(160, NaN), wrap: go.TextBlock.WrapFit, editable: true },
-			new go.Binding("text").makeTwoWay())),
-			// four named ports, one on each side:
-			makePort("T", go.Spot.Top, true, true), 
-			makePort("L", go.Spot.Left, true, true),
-			makePort("R", go.Spot.Right, true, true),
-			makePort("B", go.Spot.Bottom, true, true)
-		)
-	);
-	
-	//Nodo de Salida de Datos
-	diagrama.nodeTemplateMap.add("Condicional",
-			$(go.Node, "Spot", nodeStyle(),
-			// the main object is a Panel that surrounds a TextBlock with a rectangular Shape
-			$(go.Panel, "Auto",
-			$(go.Shape, "Diamond", { fill: "#5FB49C", stroke:"#5FB49C" }, new go.Binding("figure", "figure")),
-			$(go.TextBlock,{ font: "bold 11pt Helvetica, Arial, sans-serif", stroke: "whitesmoke", margin: 8,  maxSize: new go.Size(160, NaN), wrap: go.TextBlock.WrapFit, editable: true },
-			new go.Binding("text").makeTwoWay())),
-			// four named ports, one on each side:
-			makePort("T", go.Spot.Top, true, true), 
-			makePort("L", go.Spot.Left, true, true),
-			makePort("R", go.Spot.Right, true, true),
-			makePort("B", go.Spot.Bottom, true, true)
-		)
-	);
+	/*Creación del menu contenedor de Elementos*/
+	 myPalette =
+	      $(go.Palette, "paletteContainer",  // must name or refer to the DIV HTML element
+	        {
+	          "animationManager.duration": 800, // slightly longer than default (600ms) animation
+	          nodeTemplateMap: diagrama.nodeTemplateMap,  // share the templates used by myDiagram
+	          model: new go.GraphLinksModel([  // specify the contents of the Palette
+	            { category: "Inicio", text: "Inicio" },
+	            { figure: "Diamond", text: "<??>" },
+	            { category: "Fin", text: "Fin" },
+	            { figure: "Rectangle", text: "<Instrucción>" },
+	            { figure: "CreateRequest", text:"<Variable>"},
+	            { figure: "Document", text:"<Entrada>"},
+	            { figure: "Card", text:"<Salida>"}
+	          ])
+	        });
+	 
 	/*Creando a la arista de conexión */
 	diagrama.linkTemplate =
 	      $(go.Link,  // the whole link panel
@@ -204,7 +181,7 @@ jQuery(document).ready(function(){
 	          new go.Binding("visible", "visible").makeTwoWay(),
 	          $(go.Shape, "RoundedRectangle",  // the label shape
 	            { fill: "#F8F8F8", stroke: null }),
-	          $(go.TextBlock, "Yes",  // the label
+	          $(go.TextBlock, "true",  // the label
 	            {
 	              textAlign: "center",
 	              font: "10pt helvetica, arial, sans-serif",
@@ -218,24 +195,9 @@ jQuery(document).ready(function(){
 	/*Construir el Diagrama de acuerdo a un json inicial*/
 	 diagrama.toolManager.linkingTool.temporaryLink.routing = go.Link.Orthogonal;
 	 diagrama.toolManager.relinkingTool.temporaryLink.routing = go.Link.Orthogonal;
-	// load();  // load an initial diagram from some JSON text
+	load(true);  // load an initial diagram from some JSON text
 	 
-	/*Creación del menu contenedor de Elementos*/
-	 myPalette =
-	      $(go.Palette, "paletteContainer",  // must name or refer to the DIV HTML element
-	        {
-	          "animationManager.duration": 800, // slightly longer than default (600ms) animation
-	          nodeTemplateMap: diagrama.nodeTemplateMap,  // share the templates used by myDiagram
-	          model: new go.GraphLinksModel([  // specify the contents of the Palette
-	            { category: "Inicio", text: "Inicio" },
-	            { category: "Condicional", text: "<??>" },
-	            { category: "Fin", text: "Fin" },
-	            { category: "Simple", text: "<Instrucción>" },
-	            { category: "Variable", text:"<Variable>"},
-	            { category: "Entrada", text:"<Entrada>"},
-	            { category: "Salida", text:"<Salida>"}
-	          ])
-	        });
+
 	/*Evitar scroll cuando alguna acción se realize en la paleta o el diagrama*/
 	 function customFocus() {
 	      var x = window.scrollX || window.pageXOffset;
@@ -244,25 +206,50 @@ jQuery(document).ready(function(){
 	      window.scrollTo(x, y);
 	    }
 
-	    myDiagram.doFocus = customFocus;
+	    diagrama.doFocus = customFocus;
 	    myPalette.doFocus = customFocus;
 	/*Funciones para guardar y cargar un Diagrama*/
-
-	  
+	function save(){
+		jQuery.ajax({
+			method: "POST",
+			url: "/diagrama",
+			data: { contenido: diagrama.model.toJson(), nombre: "prueba.json" }
+		}).done(function( msg ) {
+			alert( "Ajax");
+		});
+	}
 	
-	var modelo = $(go.GraphLinksModel);
-	modelo.nodeDataArray = [{key:"A",background:"green", text:"me"},{key:"B", background:"red", text:"la"},{key:"C", background:"blue", text:"pelas"}];
-	modelo.linkDataArray = [{from: "A", to: "B"},{from: "A", to: "C"}];
-
-	diagrama.model = modelo;
+	function load(isFirst){
+		var json ="";
+		if(isFirst==true){
+			json = { "class": "go.GraphLinksModel",
+					  "linkFromPortIdProperty": "fromPort",
+					  "linkToPortIdProperty": "toPort",
+					  "nodeDataArray": [],
+					  "linkDataArray": []
+				}
+			diagrama.model = go.Model.fromJson(json);
+			console.log("Primero")
+			return;
+		}
+		else{
+			jQuery.ajax({
+				method: "GET",
+				url: "/diagrama",
+				data: {nombre: "prueba.json" },
+				success: function(data){
+					console.log(data);
+					json = data;
+					diagrama.model = go.Model.fromJson(json);
+				}
+			})
+		}
+	}
 	
+	btnGuardar.on("click",function(){ save() });
+	btnCargar.on("click",function(){ load(false) });
+	btnCodigo.on("click",function(){
+		console.log("Generando el código");
+	})
 	
-	/*Logica de Negocio*/
-	jQuery.ajax({
-	  method: "POST",
-	  url: "/prueba",
-	  data: { name: "John", location: "Boston" }
-	}).done(function( msg ) {
-	    alert( "Ajax");
-	  });
 })
