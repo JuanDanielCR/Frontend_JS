@@ -10,7 +10,7 @@ jQuery(document).ready(function(){
 	/*Creando nuestro diagrama y agregando propiedades*/
 	var diagrama = $(go.Diagram,"diagramContainer",{
 		initialContentAlignment: go.Spot.Center, //Centrar el contenido del diagrama vertical y horizontalmente
-      	allowDrop: true, //Permite hacer drag & drop de las figuras
+      	allowDrop: true, //Permite hacer drag & drop de las figuras así como modificar información con la pallete
       	"undoManager.isEnabled": true,  // enable Ctrl-Z to undo and Ctrl-Y to redo
       	"LinkDrawn" : showLinkLabel,    //Listener of the Diagram
       	"LinkRelinked": showLinkLabel //Listener of the Diagram
@@ -74,7 +74,7 @@ jQuery(document).ready(function(){
 		$(go.Node, "Spot", nodeStyle(),
 		// the main object is a Panel that surrounds a TextBlock with a rectangular Shape
 		$(go.Panel, "Auto",
-		$(go.Shape, "Terminator", { fill: "#9ffea0", stroke:"#9ffea0" }),
+		$(go.Shape, "Terminator", new go.Binding("stroke","colorStroke"),new go.Binding("fill","color")),
 		$(go.TextBlock,{ 
 			font: "bold 11pt Helvetica, Arial, sans-serif", 
 			stroke: "whitesmoke", 
@@ -83,7 +83,8 @@ jQuery(document).ready(function(){
 			wrap: go.TextBlock.WrapFit, 
 			editable: true 
 			},
-		new go.Binding("text"))),
+		new go.Binding("text")
+			)),
 		makePort("L", go.Spot.Left, true, false), 
 		makePort("R", go.Spot.Right, true, false),
 		makePort("B", go.Spot.Bottom, true, false)
@@ -94,7 +95,7 @@ jQuery(document).ready(function(){
 			$(go.Node, "Spot", nodeStyle(),
 			// the main object is a Panel that surrounds a TextBlock with a rectangular Shape
 			$(go.Panel, "Auto",
-			$(go.Shape, "Terminator", { fill: "#A37A74", stroke:"#A37A74" }),
+			$(go.Shape, "Terminator",new go.Binding("stroke","colorStroke"),new go.Binding("fill","color")),
 			$(go.TextBlock,{
 				font: "bold 11pt Helvetica, Arial, sans-serif", 
 				stroke: "whitesmoke",
@@ -115,7 +116,8 @@ jQuery(document).ready(function(){
 			$(go.Node, "Spot", nodeStyle(),
 			// the main object is a Panel that surrounds a TextBlock with a rectangular Shape
 			$(go.Panel, "Auto",
-			$(go.Shape, "Rectangle", { fill: "#E0C879", stroke:"brown" },new go.Binding("figure", "figure")),
+			$(go.Shape, "Rectangle", new go.Binding("stroke","colorStroke"),new go.Binding("fill","color")
+			,new go.Binding("figure", "figure")),
 			$(go.TextBlock,{ 
 				font: "bold 11pt Helvetica, Arial, sans-serif", 
 				stroke:"whitesmoke", 
@@ -144,13 +146,13 @@ jQuery(document).ready(function(){
 	          "animationManager.duration": 800, // slightly longer than default (600ms) animation
 	          nodeTemplateMap: diagrama.nodeTemplateMap,  // share the templates used by myDiagram
 	          model: new go.GraphLinksModel([  // specify the contents of the Palette
-	            { category: "Inicio", text: "Inicio" },
-	            { figure: "Diamond", text: "<??>" },
-	            { category: "Fin", text: "Fin" },
-	            { figure: "Rectangle", text: "<Instrucción>" },
-	            { figure: "CreateRequest", text:"<Variable>"},
-	            { figure: "Document", text:"<Entrada>"},
-	            { figure: "Card", text:"<Salida>"}
+	            { category: "Inicio", text: "Inicio", color: "#9ffea0" ,colorStroke:"#9ffea0"},
+	            { figure: "Diamond", text: "<??>",  color: "#E0C879" ,colorStroke:"brown"},
+	            { category: "Fin", text: "Fin", color: "#A37A74" ,colorStroke:"#A37A74"},
+	            { figure: "Rectangle", text: "<Instrucción>", color: "#E0C879" ,colorStroke:"brown"},
+	            { figure: "CreateRequest", text:"<Variable>", color: "#E0C879" ,colorStroke:"brown"},
+	            { figure: "Document", text:"<Entrada>", color: "#E0C879" ,colorStroke:"brown"},
+	            { figure: "Card", text:"<Salida>",  color: "#E0C879" ,colorStroke:"brown"}
 	          ])
 	        });
 	 
@@ -210,10 +212,20 @@ jQuery(document).ready(function(){
 	    myPalette.doFocus = customFocus;
 	/*Funciones para guardar y cargar un Diagrama*/
 	function save(){
+		/*Creación del JSON*/
+		//var code = generarCodigo();
+		var finalJSON = {
+			diagrama: diagrama.model.toJson()
+			//nombre: code
+		};
+		console.log(finalJSON);
+		//console.log(code);
+		
+		/*Peticion Ajax*/
 		jQuery.ajax({
 			method: "POST",
 			url: "/diagrama",
-			data: { contenido: diagrama.model.toJson(), nombre: "prueba.json" }
+			data: { contenido:  diagrama.model.toJson(), nombre: "prueba.json"}
 		}).done(function( msg ) {
 			alert( "Ajax");
 		});
@@ -229,7 +241,7 @@ jQuery(document).ready(function(){
 					  "linkDataArray": []
 				}
 			diagrama.model = go.Model.fromJson(json);
-			console.log("Primero")
+			console.log("Primero");
 			return;
 		}
 		else{
@@ -248,8 +260,44 @@ jQuery(document).ready(function(){
 	
 	btnGuardar.on("click",function(){ save() });
 	btnCargar.on("click",function(){ load(false) });
+	
+	
 	btnCodigo.on("click",function(){
-		console.log("Generando el código");
+		var codigo = generarCodigo(diagrama);
+		/*Append al div de código*/
 	})
 	
+	/*Agregando snippet para cambiar color en el diagrama*/
+
+    
+    /*Contenedor para la pallete*/
+    var inspector = new Inspector('myInspectorDiv', diagrama,
+    	{
+    	// uncomment this line to only inspect the named properties below instead of all properties on each object:
+    	// includesOwnProperties: false,
+    	properties: {
+    		"text": {},
+    	    // color would be automatically added for nodes, but we want to declare it a color also:
+    	    "color": { show: Inspector.showIfPresent, type: 'color' },
+    	    "colorStroke":{show: Inspector.showIfPresent, type: 'color'},
+    	    "LinkComments": { show: Inspector.showIfLink },
+    	    }
+    	});
+	
 })
+
+/*Generar código*/
+function generarCodigo(diagrama){
+	/*objetos para obtener el codigo*/
+	var objetoDiagrama = diagrama.model;
+	var nodos =  objetoDiagrama.nodeDataArray;
+	var relaciones = objetoDiagrama.linkDataArray;
+	console.log(objetoDiagrama.nodeDataArray);
+	console.log(relaciones);
+	var codigoGenerado = "#include<stdlib.h>\n#include<stdio.h>\n main(){\n";
+	/*Analisis del objeto diagrama*/
+	
+	codigoGenerado = codigoGenerado + "\n return 0; \n }";
+	return codigoGenerado;
+}
+//como se usa el elemento path
