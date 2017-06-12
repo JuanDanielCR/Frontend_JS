@@ -240,7 +240,16 @@ jQuery(document).ready(function(){
 					  "nodeDataArray": [],
 					  "linkDataArray": []
 				}
-			diagrama.model = go.Model.fromJson(json);
+			jQuery.ajax({
+				method: "GET",
+				url: "/diagrama",
+				data: {nombre: "prueba.json" },
+				success: function(data){
+					console.log(data);
+					json = data;
+					diagrama.model = go.Model.fromJson(json);
+				}
+			})
 			console.log("Primero");
 			return;
 		}
@@ -300,4 +309,19 @@ function generarCodigo(diagrama){
 	codigoGenerado = codigoGenerado + "\n return 0; \n }";
 	return codigoGenerado;
 }
-//como se usa el elemento path
+
+/*Analisis de una asignación de variable*/
+function analizarVariable(contenido){
+	var sentencia = "";
+	var arreglo_aux = contenido.split("=");
+	//Analisis del tipo de variable para Lenguaje C
+	if(){ //Numero
+		
+		
+	}else if(){ //Caracter o arreglo de caracteres
+		
+	}else{
+		
+	}
+	return sentencia;
+}

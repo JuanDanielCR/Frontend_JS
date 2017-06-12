@@ -28,12 +28,6 @@
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Mis Documentos<span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
 	            <li><a href="#">Action</a></li>
-	            <li><a href="#">Another action</a></li>
-	            <li><a href="#">Something else here</a></li>
-	            <li class="divider"></li>
-	            <li><a href="#">Separated link</a></li>
-	            <li class="divider"></li>
-	            <li><a href="#">One more separated link</a></li>
 	          </ul>
 	        </li>
 	      </ul>
@@ -52,12 +46,11 @@
 	  </div>
 	</nav>
 	<!--Cualquier gráfico creado con GOJS necesita un div como contenedor-->
+	<div id="myInspectorDiv" class="inspector"></div>
 	<div id="paletteContainer" class="palette goDiagram"></div>
-	<div id="diagramContainer" class="diagram goDiagram"></div>
-	<span style="display: inline-block; vertical-align: top;">
-      Selected Part:<br>
-      <div id="myInspectorDiv" class="inspector"> </div><br>
-    </span>
+	<div id="diagramContainer" class="diagram goDiagram"></div>  
+    
+    
 	<script type="text/javascript" src="js/index.js"></script>
 </body>
 
