@@ -4,6 +4,7 @@ jQuery(document).ready(function(){
 	var btnGuardar = jQuery("#btnGuardar");
 	var btnCodigo = jQuery("#btnCodigo");
 	var btnCargar = jQuery("#btnCargar");
+	var divCodigo = jQuery("#codigoContainer");
 	/* Usando $ como contexto: go.GraphObject.make */
 	var $ = go.GraphObject.make;
 	
@@ -267,18 +268,7 @@ jQuery(document).ready(function(){
 		}
 	}
 	
-	btnGuardar.on("click",function(){ save() });
-	btnCargar.on("click",function(){ load(false) });
-	
-	
-	btnCodigo.on("click",function(){
-		var codigo = generarCodigo(diagrama);
-		/*Append al div de código*/
-	})
-	
 	/*Agregando snippet para cambiar color en el diagrama*/
-
-    
     /*Contenedor para la pallete*/
     var inspector = new Inspector('myInspectorDiv', diagrama,
     	{
@@ -292,36 +282,146 @@ jQuery(document).ready(function(){
     	    "LinkComments": { show: Inspector.showIfLink },
     	    }
     	});
+    btnGuardar.on("click",function(){ save() });
+	btnCargar.on("click",function(){ load(false) });
+	
+	btnCodigo.on("click",function(){
+		var codigo = generarCodigo(diagrama);
+		divCodigo.append(codigo);
+	})
 	
 })
 
 /*Generar código*/
 function generarCodigo(diagrama){
+	/*Stack variables*/
+	var variables = [];
+	var keys = [];
 	/*objetos para obtener el codigo*/
 	var objetoDiagrama = diagrama.model;
 	var nodos =  objetoDiagrama.nodeDataArray;
 	var relaciones = objetoDiagrama.linkDataArray;
 	console.log(objetoDiagrama.nodeDataArray);
 	console.log(relaciones);
-	var codigoGenerado = "#include<stdlib.h>\n#include<stdio.h>\n main(){\n";
+	var codigoGenerado = "#include 'stdlib.h' <br> #include'stdio.h' <br> main(){<br>";
 	/*Analisis del objeto diagrama*/
+	//El nodo de inicio siempre si tiene el key -1
+	var nodoActual = nodos[nodoInicial(nodos)];
+	keys.push(-1);
+	//var nodosUsados = []; usados para los if y for, si su llave ya esta aqui cerramos
+	//Llenar array con los keys secuencialmente
+	while(nodoActual.category != "Fin" ){
+		nodoActual = nodos[nodoSiguiente(nodos,relaciones,keys)];
+		keys.push(nodoActual.key);
+	}
 	
-	codigoGenerado = codigoGenerado + "\n return 0; \n }";
+	console.log(keys)
+	//Recorrer las keys ya ordenadas
+	var i;
+	for(i = 1; i < keys.length-1; i++){ //Emepzamos en 1 y terminamos uno antes por los nodos de inicio y fin
+		var j;
+		for(j=0; j < nodos.length; j++){
+			if(nodos[j].key == keys[i]){
+				//Ver que tipo de nodo es con el figure
+				if(nodos[j].figure == "Rectangle"){
+					codigoGenerado = codigoGenerado + "<br>" + nodos[j].text;
+				}else if(nodos[j].figure == "CreateRequest"){
+					codigoGenerado = codigoGenerado + "<br>" + analizarVariable(nodos[j].text,variables,keys[i]);
+				}else if(nodos[j].figure == "Document"){
+					//scanf() ver que variable desea escanear
+					var k;
+					for(k = 0; k < variables.length; k++){
+						if(variables[k].nombre == nodos[j].text){
+							codigoGenerado = codigoGenerado + "<br>" + analizarEntrada(variables[k]);
+						}else{
+							codigoGenerado = codigoGenerado + "Error: Not variable found"
+						}
+					}
+					
+				}else if(nodos[j].figure == "Card"){
+					codigoGenerado = codigoGenerado + "<br>" + analizarSalida(nodos[j].text);
+				}
+			}
+		}
+	}
+	codigoGenerado = codigoGenerado + "<br> return 0; <br> }";
+	console.log(codigoGenerado)
 	return codigoGenerado;
 }
-
+/*Obtener primer nodo*/
+function nodoInicial(nodos){
+	var i;
+	console.log(nodos[0]);
+	for(i=0; i <nodos.length; i++){
+		if(nodos[i].category=="Inicio"){
+			return i;
+		}
+	}
+}
+/*Obtener siguiente nodo*/
+function nodoSiguiente(nodos, relaciones, keys){
+	//ver de donde viene
+	var i;
+	for(i=0; i <relaciones.length; i++){
+		if(relaciones[i].from==keys[keys.length-1]){
+			var keyActual = relaciones[i].to;
+			//obtener el indice de ese nodo
+			var j;
+			for(j=0; j <nodos.length; j++){
+				if(nodos[j].key==keyActual){
+					return j;
+				}
+			}
+		}
+	}
+}
 /*Analisis de una asignación de variable*/
-function analizarVariable(contenido){
+function analizarVariable(contenido, stackVariables, key){
 	var sentencia = "";
+	var objetoVariable = {};
 	var arreglo_aux = contenido.split("=");
 	//Analisis del tipo de variable para Lenguaje C
-	if(){ //Numero
-		
-		
-	}else if(){ //Caracter o arreglo de caracteres
-		
-	}else{
-		
+	if(!isNaN(arreglo_aux[1])){ //Numero
+		var numero = arreglo_aux[1].split(".");
+		if(numero.length == 1){//int o float
+			sentencia = sentencia + "int ";
+			objetoVariable.tipo = "int"
+		}else{//float
+			sentencia = sentencia + "float ";
+			objetoVariable.tipo = "float"
+		}
+	}else{ //Caracter o arreglo de caracteres
+		if((c.length-2)==1){ //Menos 2 por las ''
+			sentencia = sentencia + "char ";
+			objetoVariable.tipo = "char"
+		}else{
+			sentencia = sentencia +"char["+(c.length-2)+"] ";
+			objetoVariable.tipo = "char[]"
+		}
 	}
+	objetoVariable.nombre = arreglo_aux[0];
+	objetoVariable.keys = key;
+	stackVariables.push(objetoVariable);
+	sentencia = sentencia + arreglo_aux[0] +" = "+ arreglo_aux[1]+";";
+	return sentencia;
+}
+/*Analisis salida de una variable*/
+function analizarSalida(contenido){
+	var sentencia = "<br>printf(\""+contenido+"\");";
+	return sentencia;
+}
+/*Analisis entrada de una variable*/
+function analizarEntrada(variable){
+	var sentencia = "<br> scanf(";
+	if(variable.tipo=="int"){
+		sentencia = sentencia + "'%d',";
+	}else if(variable.tipo=="float"){
+		sentencia = sentencia + "'%f',";
+	}else{
+		sentencia = sentencia + "'%c',";
+	}
+	
+	sentencia = sentencia + " &"+variable.nombre;
+	sentencia = sentencia + ");";
 	return sentencia;
 }

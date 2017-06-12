@@ -49,7 +49,7 @@
 	<div id="myInspectorDiv" class="inspector"></div>
 	<div id="paletteContainer" class="palette goDiagram"></div>
 	<div id="diagramContainer" class="diagram goDiagram"></div>  
-    
+    <div id="codigoContainer"></div>
     
 	<script type="text/javascript" src="js/index.js"></script>
 </body>
