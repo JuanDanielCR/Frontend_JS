@@ -294,56 +294,53 @@ jQuery(document).ready(function(){
 
 /*Generar código*/
 function generarCodigo(diagrama){
-	/*Stack variables*/
-	var variables = [];
-	var keys = [];
+	
 	/*objetos para obtener el codigo*/
 	var objetoDiagrama = diagrama.model;
 	var nodos =  objetoDiagrama.nodeDataArray;
 	var relaciones = objetoDiagrama.linkDataArray;
-	console.log(objetoDiagrama.nodeDataArray);
-	console.log(relaciones);
+	/*Variables para el analisis*/
+	var ifs = [];
+	var elses = [];
+	var fors = [];
+	var nodosActuales = []
+	var keys = [];
+	var variables = [];
+	var hasNext = true;
 	var codigoGenerado = "#include 'stdlib.h' <br> #include'stdio.h' <br> main(){<br>";
-	/*Analisis del objeto diagrama*/
-	//El nodo de inicio siempre si tiene el key -1
+	
+	//El nodo de inicio siempre tiene el key -1
 	var nodoActual = nodos[nodoInicial(nodos)];
 	keys.push(-1);
-	//var nodosUsados = []; usados para los if y for, si su llave ya esta aqui cerramos
-	//Llenar array con los keys secuencialmente
+	
 	while(nodoActual.category != "Fin" ){
 		nodoActual = nodos[nodoSiguiente(nodos,relaciones,keys)];
+		//agregamos la llave, del ultimo nodo del camino principal
 		keys.push(nodoActual.key);
-	}
-	
-	console.log(keys)
-	//Recorrer las keys ya ordenadas
-	var i;
-	for(i = 1; i < keys.length-1; i++){ //Emepzamos en 1 y terminamos uno antes por los nodos de inicio y fin
-		var j;
-		for(j=0; j < nodos.length; j++){
-			if(nodos[j].key == keys[i]){
-				//Ver que tipo de nodo es con el figure
-				if(nodos[j].figure == "Rectangle"){
-					codigoGenerado = codigoGenerado + "<br>" + nodos[j].text;
-				}else if(nodos[j].figure == "CreateRequest"){
-					codigoGenerado = codigoGenerado + "<br>" + analizarVariable(nodos[j].text,variables,keys[i]);
-				}else if(nodos[j].figure == "Document"){
-					//scanf() ver que variable desea escanear
-					var k;
-					for(k = 0; k < variables.length; k++){
-						if(variables[k].nombre == nodos[j].text){
-							codigoGenerado = codigoGenerado + "<br>" + analizarEntrada(variables[k]);
-						}else{
-							codigoGenerado = codigoGenerado + "Error: Not variable found"
-						}
-					}
-					
-				}else if(nodos[j].figure == "Card"){
-					codigoGenerado = codigoGenerado + "<br>" + analizarSalida(nodos[j].text);
+		
+		if(nodoActual.figure == "Rectangle"){
+			codigoGenerado = codigoGenerado + "<br>" + nodoActual.text;
+		}else if(nodoActual.figure == "CreateRequest"){
+			codigoGenerado = codigoGenerado + "<br>" + analizarVariable(nodoActual.text,variables,nodoActual.key);
+		}else if(nodoActual.figure == "Document"){
+			//scanf() ver que variable desea escanear
+			var k;
+			for(k = 0; k < variables.length; k++){
+				if(variables[k].nombre == nodoActual.text){
+					codigoGenerado = codigoGenerado + "<br>" + analizarEntrada(variables[k]);
+				}else{
+					codigoGenerado = codigoGenerado + "Error: Not variable found"
 				}
 			}
+			
+		}else if(nodoActual.figure == "Card"){
+			codigoGenerado = codigoGenerado + "<br>" + analizarSalida(nodoActual.text);
+		}//Si se tiene un if() o un for() hacemos un push de la llave del nodo que nos permite salir del ciclo para continuar ahi
+		else if(nodoActual == "Diamond"){
+			
 		}
 	}
+	
 	codigoGenerado = codigoGenerado + "<br> return 0; <br> }";
 	console.log(codigoGenerado)
 	return codigoGenerado;
@@ -360,6 +357,7 @@ function nodoInicial(nodos){
 }
 /*Obtener siguiente nodo*/
 function nodoSiguiente(nodos, relaciones, keys){
+	var caminos = [];
 	//ver de donde viene
 	var i;
 	for(i=0; i <relaciones.length; i++){
@@ -369,11 +367,12 @@ function nodoSiguiente(nodos, relaciones, keys){
 			var j;
 			for(j=0; j <nodos.length; j++){
 				if(nodos[j].key==keyActual){
-					return j;
+					caminos.push(j);
 				}
 			}
 		}
 	}
+	return caminos;
 }
 /*Analisis de una asignación de variable*/
 function analizarVariable(contenido, stackVariables, key){
@@ -425,3 +424,71 @@ function analizarEntrada(variable){
 	sentencia = sentencia + ");";
 	return sentencia;
 }
+/*Analizando si es un ciclo o un if*/
+function analizarDiamante(){
+	
+}
+
+/*
+ * 
+ * Stack variables
+	var variables = [];
+	var keys = [];
+	var caminos = [];
+	var nodosActuales = [];
+
+
+keys.push(-1);
+	caminos.push(keys);
+	//var nodosUsados = []; usados para los if y for, si su llave ya esta aqui cerramos
+	//Llenar array con los keys secuencialmente
+	while(nodoActual.category != "Fin" ){
+		var caminosActual = nodoSiguiente(nodos,relaciones,keys);;
+		if(caminosActual.length > 1){
+			//es un if o un for creamos un nuevo camino con caminosActual[1] y un nuevo nodo actual
+			var aux = new Array();
+			caminos.push(aux);
+		}
+		//llenamos nuestros nodosActuales para cada camino
+		var i;
+		for(i=0; i< caminos.length; i++){
+			caminos[i].push(nodos[caminosActual[i]])
+		}
+		//nodoActual = nodos[];
+		//keys.push(nodoActual.key);
+	}
+	
+	console.log(caminos)
+	console.log(keys)
+	//Recorrer las keys ya ordenadas
+	var i;
+	for(i = 1; i < keys.length-1; i++){ //Emepzamos en 1 y terminamos uno antes por los nodos de inicio y fin
+		var j;
+		for(j=0; j < nodos.length; j++){
+			if(nodos[j].key == keys[i]){
+				//Ver que tipo de nodo es con el figure
+				if(nodos[j].figure == "Rectangle"){
+					codigoGenerado = codigoGenerado + "<br>" + nodos[j].text;
+				}else if(nodos[j].figure == "CreateRequest"){
+					codigoGenerado = codigoGenerado + "<br>" + analizarVariable(nodos[j].text,variables,keys[i]);
+				}else if(nodos[j].figure == "Document"){
+					//scanf() ver que variable desea escanear
+					var k;
+					for(k = 0; k < variables.length; k++){
+						if(variables[k].nombre == nodos[j].text){
+							codigoGenerado = codigoGenerado + "<br>" + analizarEntrada(variables[k]);
+						}else{
+							codigoGenerado = codigoGenerado + "Error: Not variable found"
+						}
+					}
+					
+				}else if(nodos[j].figure == "Card"){
+					codigoGenerado = codigoGenerado + "<br>" + analizarSalida(nodos[j].text);
+				}else if(nodos[j].figure == "Diamond"){
+					
+				}
+			}
+		}
+	}
+ * 
+ */
