@@ -238,7 +238,7 @@ jQuery(document).ready(function(){
 			url: "/diagrama",
 			data: { contenido:  diagrama.model.toJson(), nombre: nombreArchivo+".json"}
 		}).done(function( msg ) {
-			alert( "Ajax");
+			alert( "Archivo Guardado");
 		});
 	}
 	
@@ -355,7 +355,7 @@ function generarCodigo(diagrama, codigoGenerado){
 		}//Si se tiene un if() o un for() hacemos un push de la llave del nodo que nos permite salir del ciclo para continuar ahi
 		else if(nodoActual.figure == "Diamond"){
 			var llave = nodoActual.key;
-			var receptor = analizarCondicional(llave, relaciones,nodos,fors);
+			var receptor = analizarCondicional(llave, relaciones,nodos,fors,variables);
 			nodoActual =  nodos[receptor.sig];
 			keys.push(nodoActual.key);
 			codigoGenerado = codigoGenerado + receptor.code;
@@ -446,7 +446,7 @@ function analizarEntrada(variable){
 	return sentencia;
 }
 /*Analizando si es un ciclo o un if*/
-function analizarCondicional(llave, relaciones,nodos,fors){
+function analizarCondicional(llave, relaciones,nodos,fors,variables){
 	var nodoSiguiente = {};
 	var isFor =  false;
 	var keySiguiente;
@@ -495,7 +495,7 @@ function analizarCondicional(llave, relaciones,nodos,fors){
 							if(variables[k].nombre == nodoActual.text){
 								codigoGenerado = codigoGenerado + "<br>" + analizarEntrada(variables[k]);
 							}else{
-								codigoGenerado = codigoGenerado + "Error: Not variable found"
+								codigoGenerado = codigoGenerado + "Error: Esa variable donde esta"
 							}
 						}
 						
