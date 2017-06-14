@@ -4,7 +4,7 @@
   "nodeDataArray": [ 
 {"figure":"Rectangle", "text":"a=a+10;", "color":"#e0c879", "colorStroke":"#a52a2a", "key":"-4", "loc":"-169.8125 -21.99999999999983"},
 {"category":"Fin", "text":"Fin", "color":"#8000ff", "colorStroke":"#a37a74", "key":"-5", "loc":"-297.8125 46.99999999999993"},
-{"category":"Inicio", "text":"Inicio", "color":"#ff0080", "colorStroke":"#ff0080", "key":"-1", "loc":"-144.8125 -350.9999999999999"},
+{"category":"Inicio", "text":"Inicio", "color":"#ff0000", "colorStroke":"#ff0080", "key":"-1", "loc":"-144.8125 -350.9999999999999"},
 {"figure":"CreateRequest", "text":"a=1.2", "color":"#e0c879", "colorStroke":"#a52a2a", "key":"-6", "loc":"-150.81249999999977 -212.00000000000017"},
 {"figure":"Card", "text":"Creando a", "color":"#e0c879", "colorStroke":"#a52a2a", "key":"-8", "loc":"-143.81249999999983 -292"},
 {"figure":"Document", "text":"a", "color":"#e0c879", "colorStroke":"#a52a2a", "key":"-7", "loc":"-14.812499999999943 -179.00000000000023"},

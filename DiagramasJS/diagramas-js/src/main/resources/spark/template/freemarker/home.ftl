@@ -33,7 +33,7 @@
 	      </ul>
 	      <div class="navbar-form navbar-left" role="search">
 	        <div class="form-group">
-	          <input type="text" class="form-control" placeholder="Nombre documento">
+	          <input type="text" id="nombreArchivo" class="form-control" placeholder="Nombre documento">
 	        </div>
 	        <button id="btnGuardar" class="btn btn-primary">Guardar</button>
 	        <button id="btnCargar" class="btn btn-success">Cargar</button>
