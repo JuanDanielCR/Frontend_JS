@@ -1,11 +1,18 @@
 jQuery(document).ready(function(){
-	
+	function LinksAnimation(e){
+		e.preventDefault();
+		jQuery('html, body').stop().animate({scrollTop: jQuery(jQuery(this).attr('href')).offset().top}, 800,"swing");
+	}
+	jQuery('.linker').click(LinksAnimation);
 	/*Botones*/
 	var btnGuardar = jQuery("#btnGuardar");
 	var btnCodigo = jQuery("#btnCodigo");
 	var btnCargar = jQuery("#btnCargar");
 	var divCodigo = jQuery("#codigoContainer");
 	var txtArchivo =  jQuery("#nombreArchivo");
+	jQuery("#diagramContainer").click(function(){
+		jQuery("#myInspectorDiv").addClass("acepta");
+	})
 	/* Usando $ como contexto: go.GraphObject.make */
 	var $ = go.GraphObject.make;
 	
@@ -290,14 +297,15 @@ jQuery(document).ready(function(){
 	btnCargar.on("click",function(){ load(false) });
 	
 	btnCodigo.on("click",function(){
-		var codigo = generarCodigo(diagrama);
-		divCodigo.append(codigo);
+		var codigo = generarCodigo(diagrama,codigo);
+		divCodigo.html(codigo);
+		codigo = "";
 	})
 	
 })
 
 /*Generar código*/
-function generarCodigo(diagrama){
+function generarCodigo(diagrama, codigoGenerado){
 	
 	/*objetos para obtener el codigo*/
 	var objetoDiagrama = diagrama.model;
@@ -311,7 +319,7 @@ function generarCodigo(diagrama){
 	var keys = [];
 	var variables = [];
 	var hasNext = true;
-	var codigoGenerado = "#include 'stdlib.h' <br> #include'stdio.h' <br> main(){<br>";
+	codigoGenerado = "#include 'stdlib.h' <br> #include'stdio.h' <br> main(){<br>";
 	
 	var exito = 0;
 	//El nodo de inicio siempre tiene el key -1
@@ -328,7 +336,7 @@ function generarCodigo(diagrama){
 			fors.pop();
 		}
 		if(nodoActual.figure == "Rectangle"){
-			codigoGenerado = codigoGenerado + "<br>" + nodoActual.text;
+			codigoGenerado = codigoGenerado + "<br>" + nodoActual.text+";";
 		}else if(nodoActual.figure == "CreateRequest"){
 			codigoGenerado = codigoGenerado + "<br>" + analizarVariable(nodoActual.text,variables,nodoActual.key);
 		}else if(nodoActual.figure == "Document"){

@@ -16,6 +16,7 @@
 	<link rel="stylesheet" type="text/css" href="https://bootswatch.com/lumen/bootstrap.min.css"/>
 	<link rel="stylesheet" href="css/index.css">
 	<link rel='stylesheet' href='css/dataInspector.css' />
+	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 
 </head>
 <body>
@@ -37,7 +38,7 @@
 	        </div>
 	        <button id="btnGuardar" class="btn btn-primary">Guardar</button>
 	        <button id="btnCargar" class="btn btn-success">Cargar</button>
-	        <button id="btnCodigo" class="btn btn-warning">Generar Código</button>
+	        <button id="btnCodigo" class="btn btn-warning headers" ><a href="#codigoContainerFin" class="linker">Generar Código<a/></button>
 	      </div>
 	      <ul class="nav navbar-nav navbar-right">
 	        <li><a href="https://github.com/JuanDanielCR/Frontend_JS/tree/master/DiagramasJS">Github</a></li>
@@ -49,8 +50,8 @@
 	<div id="myInspectorDiv" class="inspector"></div>
 	<div id="paletteContainer" class="palette goDiagram"></div>
 	<div id="diagramContainer" class="diagram goDiagram"></div>  
-    <div id="codigoContainer"></div>
-    
+    <div id="codigoContainer" class="linker"></div>
+    <div id="codigoContainerFin" class="headers linker"></div>
 	<script type="text/javascript" src="js/index.js"></script>
 </body>
 

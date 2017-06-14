@@ -7,16 +7,51 @@
 	display: inline-block;
 }
 .palette{
-	height: 500px;
+	height: 600px;
 	float: left;
 	width: 20%;
 }
 .diagram{
 	background: url("fondo.png");
 	float: right;
-	height: 500px;
+	height: 600px;
 	width: 80%;
 }
 .inspector{
-	min-height: 218px;
+
+	/* Initially we don't want any height, and we want the contents to be hidden */
+	max-height: 0;
+	overflow: hidden;
+
+	/* Set our transitions up. */
+	-webkit-transition: max-height 1s;
+	-moz-transition: max-height 1s;
+	transition: max-height 1s;
+}
+.acepta{
+	/* On hover, set the max-height to something large. In this case there's an obvious limit. */
+	max-height: 218px;
+}
+#codigoContainer{
+	background: url("paper.png");
+	border-left: 6px solid #ff0080;
+	font-family: 'Indie Flower', cursive;
+	font-size: 1.5em;
+	padding-left: 2em;
+	margin-left: 1em;
+}
+#paletteContainer{
+	background: white;
+}
+a{
+	color:white;
+	text-decoration: none;
+}
+a:hover{
+	color:white;
+	text-decoration: none;
+}
+#codigoContainerFin{
+	position: absolute;
+	bottom: 0;
 }
